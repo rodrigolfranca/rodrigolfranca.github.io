@@ -2,28 +2,59 @@
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
-        <title>Quer café, meu parceiro?</title>
+        <title>Xadrezin né?</title>
     </head>
-    <body>
-        <form action="https://zaumreceptor.free.beeceptor.com/" method="POST">
-            <header>
-                <h3>Quer café?</h3>
-            </header>
-            <fieldset>
-                <div>
-                    <input type="radio" id=op1 name="resp" value="a">
-                    <label for="op1">Sim, meu parceiro!</label>
-                </div>
-                <div>
-                    <input type="radio" id=op2 name="resp" value="b">
-                    <label for="op2">Sim, café é muito bom!</label>
-                </div>
-                <div>
-                    <input type="radio" id=op3 name="resp" value="c">
-                    <label for="op3">Por favor, café é vida!</label>
-                </div>
-            </fieldset>
-            <button type="submit">Bora!</button>
-        </form>
+    <body style="width: 300px;">
+        <header style="background-color: black; color: white; text-align: center; margin:0px">
+            <h3 style="margin:0px">Bem vindo</h3>
+            <img src="images/header.png" alt="Xadrez" />
+            <div>
+                <p style="background-color:grey;margin-bottom:0px">Por favor, responda</p>
+            </div>
+        </header>
+        <main style="background-color: grey; color: white;">
+            <br />
+            <form action="https://zaumreceptor.free.beeceptor.com/" method="GET">            
+                <fieldset>
+                    <div>
+                        <label for=fname>
+                            Nome
+                        </label>
+                        <input type=text id=name name=name placeholder="Digite aqui">
+                    </div>
+                    <br />
+                    <fieldset>
+                        <legend>
+                            Qual sua peça de xadrez preferida
+                        </legend>
+                        <div>
+                            <input type=radio id=rei name=peca value=rei>
+                            <label for=rei><img src="images/rei.png" alt=Rei></label>
+                        </div>
+                        <div>
+                            <input type=radio id=dama name=peca value=dama>
+                            <label for=dama><img src="images/dama.png" alt=Dama></label>
+                        </div>
+                        <div>
+                            <input type=radio id=torre name=peca value=torre>
+                            <label for=torre><img src="images/torre.png" alt=Torre></label>
+                        </div>
+                        <div>
+                            <input type=radio id=cavalo name=peca value=cavalo>
+                            <label for=cavalo><img src="images/cavalo.png" alt=Cavalo></label>
+                        </div>
+                        <div>
+                            <input type=radio id=bispo name=peca value=bispo>
+                            <label for=bispo><img src="images/bispo.png" alt=Bispo></label>
+                        </div>
+                        <div>
+                            <input type=radio id=peao name=peca value=peao>
+                            <label for=peao><img src="images/peao.png" alt=Peao></label>
+                        </div>
+                    </fieldset>
+                    <button type="submit">Enviar</button>                
+                </fieldset><br />                
+            </form>        
+        </main>
     </body>
 </html>
