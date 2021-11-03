@@ -1,0 +1,185 @@
+/* Definição da Fonte */
+* {
+    font-family: 'Merriweather', serif;
+}
+
+/* Plano de Fundo Geral */
+body{
+    background-color: rgb(247, 244, 210);
+    margin:0;
+}
+/* Container Principal */
+#container {
+    box-sizing: border-box;
+    height: 650px;
+    width: 820px;
+    padding: 0;
+    margin: 5px auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0px;
+}
+
+
+
+/* Barra Lateral */
+aside{
+    height: 650px;
+    width: 220px;
+    background-color: #EDE06E;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}   
+
+/* Foto */
+#foto{
+    height: 200px;
+    width: 200px;
+    background-image: url("./images/eu.jpg");
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+/* Sub-títulos */
+aside h3{
+    text-align: center;
+}
+
+aside p{
+    font-size: 13px;
+}
+
+/* Contato */
+.contato {  
+    display: flex;
+    padding-left: 12px;
+}
+.contato p{
+    margin: 0;
+    text-indent: 0px;
+}
+#skills {
+    margin: 0 auto;
+    width: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    row-gap: 12px;
+    align-content:space-between;    
+}
+#hobbies {
+    margin: 0 auto;
+    width: 137px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3px;
+    align-content:space-between;
+}
+
+
+
+
+/* Conteúdo Principal */
+main{
+    height: 650px;
+    width: 600px;
+    background-color: #0E100E;
+    color:white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+main p{
+    margin: 0;
+    font-size: 13px;
+}
+/* main: Nome */
+header{
+    text-align: center;
+    padding: 1em;
+}
+h1{
+    font-size: 24px;
+    margin: 1em 0 0 0;
+}
+#line{
+    margin:0;
+    font-size: 16px;
+}
+#social{
+    margin-top: 10px;
+    display: inline-flex;
+    column-gap: 2em;
+}
+a{
+    text-decoration: none;
+}
+.socialicon{
+    fill: rgb(228, 230, 115);                              
+}
+.socialicon:hover{
+    fill: rgb(33, 30, 194)
+}
+
+/* Separador */
+.separador{
+    height: 1px;
+    width: 500px;
+    border-radius: 1px;
+    background-color: #EDE06E;
+    margin: 0 auto;
+}
+
+/* sub-titulos */
+main h3{
+    text-align: center;
+    color: #EDE06E;
+    font-size: 17px;
+    margin: 1em 0 1em;
+}
+
+/* SOBRE MIM */
+#sobre{
+    width: 500px;
+    height: 140px;
+    margin: 16px auto;
+}
+#sobre p{
+    text-align: justify;
+    text-justify: auto;
+}
+
+/* Educação */
+#educacao{
+    box-sizing: border-box;
+    height: 122px;
+    width: 500px;
+    margin: 16px auto;
+}
+.instituicoes {
+    margin: 15px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 17px;
+}
+.escola{
+    text-align: center;   
+}
+
+/* Experiência */
+.expdata{
+    font-size: 12px;
+}
+#exp{
+    box-sizing: border-box;
+    height: 142px;
+    width: 500px;
+    margin: 16px auto;
+}
+.empresa{
+    text-align: center;
+    width: 132px;
+}
+#exp .instituicoes{
+    column-gap: 50px;
+}
