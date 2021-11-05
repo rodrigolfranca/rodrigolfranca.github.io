@@ -142,7 +142,7 @@ main h3{
     height: 140px;
     margin: 16px auto;
 }
-#sobre p{
+#sobre p    {
     text-align: justify;
     text-justify: auto;
 }
@@ -157,6 +157,10 @@ main h3{
 #educacao span{
     font-weight: bold;
     text-decoration: underline;
+}
+#educacao p{
+    text-align: justify;
+    text-justify: auto;
 }
 .instituicoes {
     margin: 15px auto 0;
