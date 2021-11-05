@@ -36,6 +36,7 @@ aside{
     background-image: url("./images/eu.jpg");
     border-radius: 50%;
     margin: 10px auto;
+	box-shadow: black 3px 3px 10px;
 }
 
 /* Sub-títulos */
@@ -86,6 +87,7 @@ main{
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     margin: 0 220px;
+	box-shadow: black 3px 3px 10px;
 }
 main p, main li, main ul{
     margin: 0;
