@@ -5,20 +5,16 @@
 
 /* Plano de Fundo Geral */
 body{
-    background-color: rgb(247, 244, 210);
+    background-color: #f7f4d2;
     margin:0;
 }
 /* Container Principal */
 #container {
     box-sizing: border-box;
-    height: 650px;
+    height: 1433px;
     width: 820px;
     padding: 0;
     margin: 5px auto;
-
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 0px;
 }
 
 
@@ -27,9 +23,10 @@ body{
 aside{
     height: 650px;
     width: 220px;
-    background-color: #EDE06E;
+    background-color: #FFD046;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    position: fixed;
 }   
 
 /* Foto */
@@ -82,14 +79,15 @@ aside p{
 
 /* Conteúdo Principal */
 main{
-    height: 650px;
+    height: 1425px;
     width: 600px;
-    background-color: #0E100E;
+    background-color: #1e1e1e;
     color:white;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    margin: 0 220px;
 }
-main p{
+main p, main li, main ul{
     margin: 0;
     font-size: 13px;
 }
@@ -115,7 +113,7 @@ a{
     text-decoration: none;
 }
 .socialicon{
-    fill: rgb(228, 230, 115);                              
+    fill: #FFD046;                              
 }
 .socialicon:hover{
     fill: rgb(33, 30, 194)
@@ -126,14 +124,14 @@ a{
     height: 1px;
     width: 500px;
     border-radius: 1px;
-    background-color: #EDE06E;
+    background-color: #FFD046;
     margin: 0 auto;
 }
 
 /* sub-titulos */
 main h3{
     text-align: center;
-    color: #EDE06E;
+    color: #FFD046;
     font-size: 17px;
     margin: 1em 0 1em;
 }
@@ -152,33 +150,99 @@ main h3{
 /* Educação */
 #educacao{
     box-sizing: border-box;
-    height: 122px;
+    height: 425px;
     width: 500px;
     margin: 16px auto;
+}
+#educacao span{
+    font-weight: bold;
+    text-decoration: underline;
 }
 .instituicoes {
     margin: 15px auto 0;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 17px;
+    column-gap: 177px;
 }
 .escola{
     text-align: center;   
 }
 
+/* Skills */
+#skillsmain{
+    box-sizing: border-box;
+    height: 127px;
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 16px auto;
+    background-color:#f7f4d2;
+    padding: 16px;
+    column-gap: 23px;
+    color: black;
+    border-radius: 25px;
+}
+.bars{
+    box-sizing: border-box;
+    height: 17px;
+}
+#htmlbar {
+    height: 15px;
+    width: 400px;
+    background:linear-gradient(to right, #FFD046 80%, #11111100 20%);
+    border: black 2px solid;
+    border-radius: 15px;
+}
+#cssbar {
+    height: 15px;
+    width: 400px;
+    background:linear-gradient(to right, #FFD046 70%, #11111100 30%);
+    border: black 2px solid;
+    border-radius: 15px;
+}
+#githubbar {
+    height: 15px;
+    width:  400px;
+    background:linear-gradient(to right, #FFD046 50%, #11111100 50%);
+    border: black 2px solid;
+    border-radius: 15px;
+}
+#figmabar {
+    height: 15px;
+    width: 400px;
+    background:linear-gradient(to right, #FFD046 55%, #11111100 45%);
+    border: black 2px solid;
+    border-radius: 15px;
+}
+#photobar {
+    height: 15px;
+    width: 400px;
+    background:linear-gradient(to right, #FFD046 55%, #11111100 45%);
+    border: black 2px solid;
+    border-radius: 15px;
+}
+#csslabel {
+    margin-right: 16px;
+}
+#gitlabel{
+    margin-right: -6px;
+}
+#photolabel{
+    margin-right: -20px;
+}
+
+
 /* Experiência */
 .expdata{
     font-size: 12px;
+    font-weight: bold;
+    text-decoration: underline;
 }
 #exp{
     box-sizing: border-box;
     height: 142px;
     width: 500px;
     margin: 16px auto;
-}
-.empresa{
-    text-align: center;
-    width: 132px;
 }
 #exp .instituicoes{
     column-gap: 50px;
