@@ -1,0 +1,408 @@
+* {
+    font-family: 'Mohave', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    height: 2500px;
+    width: 100%;
+    background-color: #20303c;
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    position:fixed;
+    top:0;
+    background-color: #00000080;
+    width: 100%;
+    height: 100px;
+    margin:0;
+    padding-top: 22px;
+    padding-left: 60px;
+}
+li{
+    display:inline-block;
+}
+li a {
+    height: 100%;
+    width: 150px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#svgheader{
+    padding:0;
+}
+h1{
+    color: #eee6e6;
+    font-size: 37px; 
+    margin:0;
+    letter-spacing: -2px;   
+}
+h1 span{
+    color: #a29c9c
+}
+
+#sidebar{
+    position: fixed;
+    top: 30%;
+    right:0;
+    display: flex;
+    flex-direction: column;    
+    height: fit-content;
+    width: fit-content;
+    background-color: #00000080;
+    padding:29px 1em;
+}
+.side-social{
+    margin: 10px;
+}
+
+#chatbutton {
+    height:50px;
+    width: 230px;
+    background-color: white;
+    position: fixed;
+    bottom:1em;
+    right:1em;
+    padding:1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#chat-icon{
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+}
+#chatbutton span{
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+
+
+
+main{
+    width: 100%;
+    height:2500px;
+    margin:0;
+    padding: 0;
+}
+
+/* Apresentação */
+#apresentacao {
+    box-sizing: border-box;
+    height: 683px;
+    width: 100%;
+    margin:0 auto;
+    background-image: url("./images/apresentacaofundo.png");
+    background-size: 100% 100%;
+    text-align: center;
+    color: #eee6e6;
+    padding-top: 19em;
+}
+#apresentacao p{
+    font-size: 87px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 5px;
+    line-height: 100px;
+}
+#apresentacao svg{
+    height: 30px;
+    width: 100px;
+    margin: 4.5em auto 0;
+    fill: #eee6e6
+}
+
+/* Lançamentos */
+#lancamentos{
+    box-sizing: border-box;
+    height: 683px;
+    width: 100%;
+    margin:0 auto;
+    display: flex;
+    column-gap: 0;
+    color: #eee6e6;
+    background-color: #020202;
+}
+#lancamentos div{
+    height: 683px;
+    width: 50%;
+    text-align: center;
+    padding-top: 18em;
+}
+#span-lancamentos{
+    display: block;
+    font-weight: bold;
+    font-size: 55px;
+    letter-spacing: 5px;
+}
+#a-comprar{
+    display: block;
+    height: 50px;
+    width: 200px;
+    margin:0 auto;
+    padding-top: 11px;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    color:#eee6e6;
+}
+#a-comprar:hover{
+    color: #a29c9c;
+}
+#a-comprar:link, #a-comprar:visited{
+    all:none;
+}
+#a-comprar:focus{
+    border: #eee6e6 1px bold;
+}
+
+#lancamento-foto{
+    height: 683px;
+    width: 50%;
+    background-image: url(./images/mochilacomitens.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+/* Categorias */
+#categorias{
+    height:432px;
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0;
+}
+#comum{
+    height: 100%;
+    max-height: 435px;
+    width: 33.33%;
+    max-width: 434px;
+    background-image: url(./images/catcomum.webp);
+    background-size: 100% 100%;
+}
+#carga{
+    height: 100%;
+    width: 33.33%;
+    background-image: url(./images/catdecarga.png);
+    background-size: 100% 100%;
+}
+#viagem{
+    height: 100%;
+    width: 33.33%;
+    background-image: url(./images/catdeviagem.png);
+    background-size: 100% 100%;
+}
+.categorias{
+    display: block;
+    height: 100%;
+    width: 100%;
+    color:#ffffff00;
+    text-decoration: none;
+    text-align: center;
+    padding: 205px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+}
+.categorias:hover{
+    background-color: #0c0c0c88;
+    color:#eee6e6;
+}
+
+/* Liquidação */
+#liquidacao {
+    box-sizing: border-box;
+    height: 683px;
+    width: 100%;
+    margin:0 auto;
+    background-color: #000000;
+    text-align: center;
+    color: #eee6e6;
+    padding-top:5.7em ;
+}
+#liquidacao h3{
+    margin:0;
+    font-size: 55px;
+    letter-spacing: 6px;
+    margin-bottom: 5px;
+}
+#liquidacao-hspan{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+#flexliquida{
+    height: fit-content;
+    width: 922px;
+    margin: 3em auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3px;
+}
+.ofertaspan{
+    display:block;
+}
+
+/* Quem Somos */
+#secquemsomos{
+    width: 100%;
+    height: 638px;
+    background-image: url("./images/quemsomosfundo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:top;
+}
+#secquemsomos div{
+    height: 100%;
+    width: 50%;
+    background-color: #00000080;
+    color: #eee6e6;
+    padding: 12.5em 4em;
+
+}
+#texto-quem{
+    float: right;
+    width: 75%;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing:1px;
+}
+#texto-quem span{
+    font-size: 55px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    line-height: 30.8px;
+}
+
+/* Contato */
+#seccontato{
+    height: 530px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #020202;
+    color:white
+}
+#form{
+    width: 50%;
+    height: 100%;
+    padding: 6.5em 0 0 11.5em;
+}
+#form input{
+    display: block;
+    height:45px;
+    width: 390px;
+    margin: 5px 0;
+    padding-left: 1em;
+    padding-top: 1px;
+    text-align: start;
+    line-break:loose;
+
+    font-weight: bold;
+    font-size: 20px;
+}
+#input-mensagem{
+    resize:none;
+    display: block;
+    height:135px;
+    width: 390px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 1em
+}
+#form button{
+    float: right;
+    margin: 5px 78px 0 0;
+    height: 45px;
+    width: 120px;
+
+    background-color: black;
+    color: white;
+    border: 2px white solid;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#contato{
+    width: 50%;
+    height: 100%;
+    padding-top: 6em;
+    padding-left: 2em;
+}
+#contato h3{
+    font-size: 55px;
+    margin:0;    
+    letter-spacing: 3px;
+}
+#contato p{
+    width: 75%;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing:1px;
+    margin:0;
+    width:60%;
+}
+
+/* Newsleter */
+#secnewsletter{
+    width: 100%;
+    height: 400px;
+    background-color: #141414;
+    color: #eee6e6;
+    padding-top: 6em;
+    text-align: center;
+}
+#secnewsletter h3{
+    font-size: 55px;
+    margin:0;    
+    letter-spacing: 3px;
+}
+#secnewsletter p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-bottom:3em;
+}
+#secnewsletter input{
+    height:45px;
+    width: 550px;
+    padding-left: 1em;
+    padding-top: 1px;
+    text-align: start;
+    line-break:loose;
+
+    background-color: #141414;
+    border: 2px white solid;
+    font-weight: bold;
+    font-size: 20px;
+}
+#secnewsletter button{
+    height: 45px;
+    width: 120px;
+
+    background-color: #141414;
+    color: white;
+    border: 2px white solid;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*footer*/
+footer{
+    height: 150px;
+    width: 100%;
+    background-color: #141414;
+    color:#a29c9c;
+    text-align: center;
+    padding-top: 2em;
+
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    border-top: black 1px solid;
+    box-shadow: black 1px -1px 2px 0px;}
