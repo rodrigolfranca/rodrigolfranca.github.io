@@ -1,0 +1,304 @@
+* {
+    box-sizing: border-box;   
+}
+body {
+    width:auto;
+    height: auto;
+}
+
+
+/* header-nav */
+nav {
+    height: 55px;
+    width: 100%;
+    position: fixed;
+    top:0;
+    background-color: #362E26;
+    padding-top: 18px;
+    z-index: 2;
+}
+nav ul {
+    height: 35px;    
+    width: calc(134px * 6);
+    padding: 0;
+    list-style-type: none; 
+    margin: 0 auto;   
+}
+nav li {
+    height: 35px;
+    width: 130px;
+    display:inline-block;
+    text-align: center;
+}
+nav li a {
+    height: 35px;
+    width: 130px;
+    text-decoration: none;
+    color:#eae5e0;
+    font-family: Helvetica, sans-serif;
+}
+nav li a:hover{
+    color: #DAD2CA;
+}
+
+/* parallax */
+#parallax {    
+    height: 1px;
+    width: 100%;
+    background-color: #ffffff00;
+}
+#imagem {
+    width: 100%;
+    height: 800px;
+    background-image: url("./images/parafundo.png");
+    background-size: cover;    
+    background-attachment:fixed;
+    filter:saturate(70%);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+#texto h1 , #texto span , #texto svg{
+    fill: white;
+    color: white;
+}
+#texto h1 {    
+    font-family: cookie, cursive;
+    font-size: 172px;
+    line-height: 137.6px;
+    font-weight: 200;
+    font-style: italic;
+    margin: 0;
+}
+#texto span {
+    display: block;
+    font-family: poppins, serif;
+    font-size: 25px;
+    letter-spacing: 7.5px;
+    margin:0;
+}
+
+
+/* Sobre */
+#sobre {
+    width: 100%;
+    height: 450px;
+    background-color: #e78585;
+    background-image: url("./images/sobre-fundo.png");
+    background-attachment: fixed;  
+    display: flex;
+    column-gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#sobre span, #sobre h2{
+    display: block;    
+    color: white;
+}
+#sobre h2{
+    text-align: center;
+    padding-top: 160px;
+    width: 400px;
+    font-family: poppins, serif;
+    font-size: 28px;
+    letter-spacing: 1.2px;
+    line-height: 28.3px;
+}
+#sobre span {
+    width: 548px;
+    padding-top: 80px;
+    text-align: start;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+}
+
+
+/* Sabores */
+#sabores {
+    height: 650px;
+    width: 100%;
+    text-align: center;
+    padding-top: 110px;
+}
+#sabores h2{
+    margin-bottom: 0;
+    font-weight: bold;
+}
+#sabores p{
+    width: 750px;
+    margin: 30px auto 0;
+
+    font-family: helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 21px;    
+}
+#sabores-flex {
+    margin: 75px auto 0;
+    height: 150px;
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 125px;
+}
+#sabores-flex img{
+    height: 150px;
+    width: 150px;
+}
+
+
+/* Chef */
+#chef {
+    width: 100%;
+    height: 660px;
+    background-color: #70BABE;
+    background-image: url("./images/chef-fundo.png");
+    background-attachment: fixed;  
+    display: flex;    
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 0;
+    padding: 105px 0;
+    overflow: hidden;
+
+}
+#chef img {
+    width: 450px;
+    height: 450px;
+}
+#chef div {
+    width: 500px;
+    height: 450px;
+    padding: 35px 30px
+}
+#chef div h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1.4px;
+    color: white;
+}
+#chef div p{
+    width: 400px;
+    color:white;
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+}
+
+
+/* Galeria de Fotos */
+#galeria {
+    width: 100%;
+    max-width: 450%;
+    height: 460px;
+    background-image: url("./images/fundo-galeria.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0;
+    justify-content: center;
+}
+#galeria img {
+    width: 1304px;
+    height: 460px;
+}
+
+
+/* Contato */
+#contato {
+    height: 385px;
+    width: 100%;
+    background-color: #362E26;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    justify-content: center;
+}
+#contato div{
+    margin-top: 90px;
+    height: 280px;
+    width: 500px;
+    text-align: center;
+}
+#contato h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1.4px;
+    line-height: 28px;
+    color: white;
+    margin-top: 0;
+}
+#contato span{
+    display: block;
+    color:white;
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+}
+#contato ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding:0;
+    column-gap: 10px;
+    margin-top: 40px;
+}
+#li {
+    display:block;
+    height: 28px;
+    width: 28px;
+}
+input {
+    width: 497px;
+    height: 30px;
+    padding-left: 2em;
+    margin-bottom: 4px;
+    background-color: #514539;
+    color:white;    
+    border:none;
+}
+textarea {
+    width: 497px;
+    padding-top: 5px;
+    padding-left: 2em;
+    margin-bottom: 4px;
+    background-color: #514539;
+    color:white;    
+    border:none;
+    resize:none;
+}
+input::placeholder , textarea::placeholder{
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+
+}
+button {
+    float:right;
+    width: 89px;
+    height: 38px;
+    background:linear-gradient(#8D8075 50%, #514539 50%);
+    color:white;
+}
+
+/* footer :D */
+footer {
+    width: 100%;
+    height: 113px;
+    background-color: #362E26;
+    border-top: solid 1px #90857b;
+    text-align: center;
+    color: #90857b;
+}
+footer p {
+    font-family: Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 20px;
+}
