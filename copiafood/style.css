@@ -36,6 +36,7 @@ nav li a {
     text-decoration: none;
     color:#eae5e0;
     font-family: Helvetica, sans-serif;
+    font-size: 15px;
 }
 nav li a:hover{
     color: #DAD2CA;
@@ -205,6 +206,10 @@ nav li a:hover{
     column-gap: 0;
     justify-content: center;
 }
+#galeria img {
+    width: 1304px;
+    height: 460px;
+}
 
 
 /* Contato */
@@ -262,6 +267,10 @@ input {
     color:white;    
     border:none;
 }
+input:hover{
+    padding-left: 2.3em;
+    border: 1px white solid;
+}
 textarea {
     width: 497px;
     padding-top: 5px;
@@ -271,6 +280,13 @@ textarea {
     color:white;    
     border:none;
     resize:none;
+    overflow: hidden;
+}
+textarea:hover{
+    padding-top: 7px ;
+    padding-left: 2.3em;
+    border: 1px white solid;
+    height: 142px;
 }
 input::placeholder , textarea::placeholder{
     color: white;
@@ -284,6 +300,9 @@ button {
     height: 38px;
     background:linear-gradient(#8D8075 50%, #514539 50%);
     color:white;
+}
+button:hover{
+    background:linear-gradient(#a7998d 50%, #7a6d5f 50%);    
 }
 
 /* footer :D */
