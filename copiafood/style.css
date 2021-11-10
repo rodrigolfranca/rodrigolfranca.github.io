@@ -123,7 +123,10 @@ nav li a:hover{
     text-align: center;
     padding-top: 110px;
 }
-#sabores h2{
+#sabores h2{    
+    font-family: 'poppins', serif;
+    font-size: 28px;
+    letter-spacing: 1.2px;
     margin-bottom: 0;
     font-weight: bold;
 }
@@ -201,10 +204,6 @@ nav li a:hover{
     flex-wrap: wrap;
     column-gap: 0;
     justify-content: center;
-}
-#galeria img {
-    width: 1304px;
-    height: 460px;
 }
 
 
