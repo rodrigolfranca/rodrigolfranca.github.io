@@ -68,7 +68,7 @@ link1.target= "_blank";
 photo1.src = "./assets/photo-jogo1.png"
 photo1.style.width = "340px"
 
-link2.href = "https://pt.wikipedia.org/wiki/Genshin_Impact";
+link2.href = "https://en.wikipedia.org/wiki/Call_of_Duty:_Warzone";
 link2.target= "_blank";
 photo2.src = "./assets/photo-jogo2.png"
 photo2.style.width = "340px"
