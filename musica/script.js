@@ -19,4 +19,10 @@ document.querySelector("ul").style = "list-style-type: none;";
 let links = document.querySelectorAll("a:visited, a:link, a:focus");
 links.forEach(element => {
     element.style = "color: white;text-decoration: none; padding: none;"
+    element.addEventListener('mouseenter', function () { 
+        element.style = "text-decoration: underline;color:white; padding: none"
+    });
+    element.addEventListener('mouseleave', function () { 
+        element.style = "color: white;text-decoration: none; padding: none;"
+    });    
 });
