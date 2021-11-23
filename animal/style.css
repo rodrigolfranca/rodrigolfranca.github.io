@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+body{
+    width: auto;
+    height: auto;
+    background-color: black;
+}
+header {
+    width:auto;
+    height: 660px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+main {
+    margin: 0 auto;
+    width: 1030px;
+    height: 280px;
+    color: white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;    
+}
+h1 {
+    text-align: center;    
+}
+p {
+    margin: 0 auto;
+    height:auto;
+    width: 830px;
+    text-align: justify;
+    text-justify: center;
+    font-size: 18px;
+}
+figure {
+    margin: 3em auto;
+    height: calc(210px * 3);
+    width: calc(360px * 3);
+    display: flex;
+    flex-wrap: wrap;    
+}
