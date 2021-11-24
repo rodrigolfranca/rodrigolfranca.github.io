@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel=stylesheet href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>LOJÃO DA PO-HA</h1>
+            <ul>
+                <li>Produtos</li>
+                <li>Início</li>
+            </ul>
+        </header>
+        <section id=main>
+            <h2>Obrigado pela sua compra!</h2>
+            <span>Nos avalie para que possamos melhorar!</span>
+            <div id=form>
+                <input type=text name=fname id=fname value="" placeholder="Nome completo" />
+                <input type=text name=sexo id=genero value="" placeholder="Gênero" />
+                <input type=text name=email id=email value="" placeholder="E-mail" />
+                <span>Você indicaria nossa loja para amigos ou familiares?</span>                
+                <input type=radio class=radio id=sindica name=indicacao value="sim" />
+                <label for=sindica>Sim</label>
+                <input type=radio class=radio id=nindica name=indicacao value="não" />
+                <label for=nindica>Não</label>
+                <textarea name="sugestao" id=input-mensagem cols="40" rows="5" placeholder="Sugestão, reclamações..."></textarea>
+                <button id=btn-submit onclick={submit();}>Salvar</button>
+            </div>
+        </section>
+    </main>
+    <section id=result-div>
+        <h2>Resultado:</h2>
+        <span id=result></span>
+    </section>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
