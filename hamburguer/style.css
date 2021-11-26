@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    font-family: poppins, sans-serif;
+}
+body {
+    margin:0;
+    height: auto;
+    width: auto;
+    background-image: url("./assets/fundo.png");
+    background-size: cover;    
+}
+
+main{
+    width: 1100px;
+    height: 760px;
+    background-color: #EFEFEF;
+    margin: 2em auto;
+    border-radius: 15px;
+    padding: 0 1em 0 1em;    
+}
+header {
+    position: absolute;
+    width: calc(1100px - 2em);
+    height: 102px;
+    background-color: #EFEFEF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between  ;    
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+ul {
+    list-style-type: none;
+    margin: 0;    
+}
+li {
+    display: inline;
+    float: right;
+    font-size: 24px;
+    width: 150px;
+    padding-top: 6px;
+}
+header li:hover, header img:hover {
+    cursor: pointer;
+}
+li:hover {
+    text-decoration: underline;
+}
+section {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    padding-top: 110px;
+}
+#selectors {
+    width: 600px;
+    height: 640px;
+}
+fieldset{
+    border-radius: 15px;
+    margin-bottom: 5px;
+}
+.preco {
+    float: right;
+}
+aside {
+    height: 640px;
+    width: 456px;
+    background-image: url("./assets/aside-img.png");
+    background-size: cover;
+}
+#enviar {
+    display: block;
+    margin-top: 2em;
+    margin-left: calc(50% - 75px);
+    height: 50px;
+    width: 150px;
+    background-color: #c49601;
+    font-size: 23px;
+}
+#pedido {
+    display: none;
+    background-color: #056da8;
+    width: calc(100% - 3em);
+    border-radius: 8px;
+    height: 110px;
+    margin: 1.8em auto;
+}
+#pedido span{
+    display: block;
+    padding-left: 1em;
+}
+#pedido span:first-child {
+    height: 50px;
+}
+#pedido button {
+    margin: 0 auto;
+    display: block;
+    color:white;
+    background-color: #c22929;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Monte seu Lanche</title>
+    <link rel=stylesheet href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+    <body>
+        <main>
+            <header>
+                <img src="./assets/header-logo.png" alt="Role's Burgers" />
+                <ul>
+                    <li>Pedidos</li>
+                    <li>Início</li>
+                </ul>
+            </header>            
+            <section>                
+                <div id=selectors>
+                    <h2>Faz seu rolê, parceiro!</h2>                    
+                    <fieldset>
+                        <legend>Tipo de Pão</legend>
+                        <input type=radio name=bread id=bread1 value="bread1" />
+                        <label for=bread1>Pão Francês</label>
+                        <label for=bread1 class=preco>R$ 3,00</label><br />
+                        <input type=radio name=bread id=bread2 value="bread2" />
+                        <label for=bread2>Pão Australiano</label>
+                        <label for=bread2 class=preco>R$ 8,00</label><br />
+                        <input type=radio name=bread id=bread3 value="bread3" />
+                        <label for=bread3>Pão de Brioche</label>
+                        <label for=bread3 class=preco>R$ 6,00</label><br />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Qual hamburguer</legend>
+                        <input type=radio name=ham id=ham1 value="ham1" />
+                        <label for=ham1>Hamburguer de Costela</label>
+                        <label for=ham1 class=preco>R$ 10,00</label><br />
+                        <input type=radio name=ham id=ham2 value="ham2" />
+                        <label for=ham2>Hamburguer de Picanha</label>
+                        <label for=ham2 class=preco>R$ 13,00</label><br />
+                        <input type=radio name=ham id=ham3 value="ham3" />
+                        <label for=ham3>Hamburguer Vegano</label>
+                        <label for=ham3 class=preco>R$ 12,00</label><br />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Qual queijo</legend>
+                        <input type=radio name=cheese id=cheese1 value="cheese1" />
+                        <label for=cheese1>Mussarela</label>
+                        <label for=cheese1 class=preco>R$ 3,00</label><br />
+                        <input type=radio name=cheese id=cheese2 value="cheese2" />
+                        <label for=cheese2>Prato</label>
+                        <label for=cheese2 class=preco>R$ 3,00</label><br />
+                        <input type=radio name=cheese id=cheese3 value="cheese3" />
+                        <label for=cheese3>Cheddar</label>
+                        <label for=cheese3 class=preco>R$ 5,00</label><br />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Salada</legend>                        
+                        <input type=checkbox name=salad1 id=salad1 value="salad1" />
+                        <label for=salad1>Tomate</label>
+                        <label for=salad1 class=preco>R$ 1,50</label><br />
+                        <input type=checkbox name=salad2 id=salad2 value="salad2" />
+                        <label for=salad2>Alface</label>
+                        <label for=salad2 class=preco>R$ 1,50</label><br />
+                    </fieldset>
+                    <button id=enviar onclick="submeter()">Enviar</button>
+                    <div id=pedido>
+                        <span id=especificacoes></span>
+                        <span id=total></span>
+                        <button id=voltar onclick="voltar()">Enviar ao chef</button>
+                    </div>
+                </div>
+                <aside></aside>
+            </section>
+        </main>
+        <script src="./script.js"></script>
+    </body>
+</html>
