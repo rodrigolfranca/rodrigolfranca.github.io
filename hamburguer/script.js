@@ -42,11 +42,13 @@ function submeter() {
     } else if (cheese[2].checked) {
         result += "Queijo Cheddar ";
         price = price + 5.00;
-    }    
-    if ( salad1.checked || salad2.checked) {
-        result += "com "
-    } else {
-        result += "sem salada"
+    }
+    if (result !== "") {
+        if ( salad1.checked || salad2.checked) {
+            result += "com "
+        } else {
+            result += "sem salada"
+        }
     }
     if ( salad1.checked && salad2.checked) {
         result += "Alface e Tomate"
