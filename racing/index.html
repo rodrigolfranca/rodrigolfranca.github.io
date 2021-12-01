@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">    
+    <title>Crazy Race</title>
+    <link href="./style.css" rel=stylesheet>
+</head>
+<body>
+    <header>
+        <h1>CRAZY RACING</h1>
+        <div id=inputs>
+            <input type=radio class=input name=race id=fast value="bread1" />
+            <label for=fast>Corrida Rápida</label>
+            <input type=radio class=input name=race id=grand value="bread1" />
+            <label for=grand>Grande Prêmio</label>
+            <input type=radio class=input name=race id=endure value="bread1" />
+            <label for=endure>Enduro</label>
+            <input type=radio class=input name=race id=custom value="bread1" />
+            <label for=custom>Custom Race:</label>
+            <input type=number class=input id=customvoltas placeholder="Quantas voltas?" />
+        </div>
+    </header>
+    <main>
+        <span style="width:100%; text-align: center;">Clique nos carros para customiza-los</span>
+        <div class=carro id=carro0>
+            <span>Pedro</span>
+            <img src="./images/uno.png" alt="uno com escada" onclick="customCar(0)" />
+            <span id=min0>150</span>
+            <span id=max0>230</span>
+            <span id=derrapagem0>3</span>
+        </div>
+        <div class=carro id=carro1>
+            <span>Juca</span>
+            <img src="./images/opala.png" alt=opala onclick="customCar(1)" />
+            <span id=min1>120</span>
+            <span id=max1>260</span>
+            <span id=derrapagem1>5</span>
+        </div>
+        <div class=carro id=carro2>
+            <span>Edna</span>
+            <img src="./images/brasilia.png" alt=brasilia onclick="customCar(2)" />
+            <span id=min2>180</span>
+            <span id=max2>220</span>
+            <span id=derrapagem2>1</span>
+        </div>
+    </main>
+    <button id=action onclick="vai()">GO!</button>
+    <span id=vencedor>Vencedor: </span>  
+
+    <script src="./script.js"></script>
+</body>
+</html>
