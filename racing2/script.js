@@ -50,7 +50,7 @@ function race(){
     count2 = 0;
     
     for (let i=0; i<=voltas-1; i++) {
-        console.log("Volta: "+voltas)
+        console.log("Volta: "+(i+1))
         vel0 = geraRandom(car.speedMin[0] , car.speedMax[0]);
         vel0 = vel0 - ((vel0 * car.slippage[0])/100);
         console.log("Velocidade do Pedro: "+vel0);
@@ -75,13 +75,13 @@ function race(){
     }    
 
     if (count0 > count1 && count0 > count2){
-        winner.innerHTML = "Vencedor: Pedro"
-    }
-    if (count1 > count0 && count1 > count2){
-        winner.innerHTML = "Vencedor: Juca"
-    }
-    if (count2 > count1 && count2 > count0){
-        winner.innerHTML = "Vencedor: Edna"
+        winner.innerHTML = "!! Vencedor: Pedro !!"
+    } else if (count1 > count0 && count1 > count2){
+        winner.innerHTML = "!! Vencedor: Juca !!"
+    } else if (count2 > count1 && count2 > count0){
+        winner.innerHTML = "!! Vencedor: Edna !!"
+    } else {
+        winner.innerHTML = "Empate"
     }
 }
 

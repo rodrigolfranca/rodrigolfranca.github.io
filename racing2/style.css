@@ -71,6 +71,7 @@ main {
     cursor: pointer
 }
 #vencedor {
+    text-align: center;
     display: block;
     margin: 0 auto;
     background-color: #FFD046;
@@ -78,8 +79,7 @@ main {
     width: 475px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    padding-top: 2em;
-    padding-left: 9.2em;    
+    padding-top: 2em;  
 }
 #result span {
     height: 27px;
