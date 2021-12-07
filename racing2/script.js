@@ -11,7 +11,7 @@ const max2 = document.getElementById("max2").innerHTML;
 const derrapagem2 = document.getElementById("derrapagem2").innerHTML;
 const winner = document.getElementById("vencedor")
 
-
+//carro criado
 let car = {
     owner: ["Pedro" , "Juca" , "Edna"],
     rarity: ["" , "" , ""],
@@ -20,6 +20,7 @@ let car = {
     slippage: [0 , 0 , 0]
 }
 
+//modelos de carro
 let popular = {
     vmaxima: [180 , 200] ,
     vminima: [110 , 130] ,
@@ -36,6 +37,8 @@ let superSport = {
     slippage: [1 , 1,75]
 }
 
+
+//fabricando carros
 function makeCar(id) {
 
     aux = geraRandom(0 , 100);
@@ -67,6 +70,8 @@ function makeCar(id) {
     document.getElementById("derrapagem"+id).innerHTML = "Derrapagem: "+car.slippage[id]+"%";
 }
 
+
+//contando as voltas
 function vai() {    
     if (lapradio[0].checked) {
         voltas = 10;
@@ -93,6 +98,8 @@ function vai() {
     } 
 }
 
+
+//corrida
 function race(){ 
     count0 = 0;
     count1 = 0;
@@ -134,6 +141,8 @@ function race(){
     }
 }
 
+
+//gerador de aleatório
 function geraRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
