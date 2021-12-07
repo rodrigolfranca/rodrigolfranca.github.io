@@ -10,6 +10,8 @@ const min2 = document.getElementById("min2").innerHTML;
 const max2 = document.getElementById("max2").innerHTML;
 const derrapagem2 = document.getElementById("derrapagem2").innerHTML;
 const winner = document.getElementById("vencedor")
+
+
 let car = {
     owner: ["Pedro" , "Juca" , "Edna"],
     rarity: ["" , "" , ""],
@@ -99,13 +101,13 @@ function race(){
     for (let i=0; i<=voltas-1; i++) {
         console.log("Volta: "+(i+1))
         vel0 = geraRandom(car.speedMin[0] , car.speedMax[0]);
-        vel0 = vel0 - ((vel0 * car.slippage[0])/100);
+        vel0 = parseInt(vel0 - ((vel0 * car.slippage[0])/100));
         console.log("Velocidade do Pedro: "+vel0);
         vel1 = geraRandom(car.speedMin[1] , car.speedMax[1]);
-        vel1 = vel1 - ((vel1 * car.slippage[1])/100);
+        vel1 = parseInt(vel1 - ((vel1 * car.slippage[1])/100));
         console.log("Velocidade do Juca: "+vel1);
         vel2 = geraRandom(car.speedMin[2] , car.speedMax[2]);
-        vel2 = vel2 - ((vel2 * car.slippage[2])/100);
+        vel2 = parseInt(vel2 - ((vel2 * car.slippage[2])/100));
         console.log("Velocidade da Edna: "+vel2);
         if (vel0 > vel1 && vel0 > vel2) {
             count0 = count0 + 1
