@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">    
+    <title>Crazy Race</title>
+    <link href="./style.css" rel=stylesheet>
+</head>
+<body>
+    <header>
+        <h1>CRAZY RACING</h1>
+        <div id=inputs>
+            <input type=radio class=input name=race id=fast value="bread1" />
+            <label for=fast>Corrida Rápida</label>
+            <input type=radio class=input name=race id=grand value="bread1" />
+            <label for=grand>Grande Prêmio</label>
+            <input type=radio class=input name=race id=endure value="bread1" />
+            <label for=endure>Enduro</label>
+        </div>
+    </header>
+    <main>
+        <span style="width:100%; text-align: center; font-weight: bold;">CLIQUE NOS CARRINHOS PARA GERAR SEUS DADOS</span>
+        <div class=carro id=carro0>
+            <span>Pedro</span>
+            <span id=exp0 style="width: 140px;">EXP: 0</span> <span id=level0 style="width: 140px;">Level: 1</span>
+            <img src="./images/uno.png" alt="uno com escada" onclick="makeCar(0)" />
+            <span id=rarity0>Raridade: ------</span>
+            <span id=min0>Mínima: --- Km/h</span>
+            <span id=max0>Máxima: --- Km/h</span>
+            <span id=derrapagem0>Derrapagem: -- %</span>
+        </div>
+        <div class=carro id=carro1>
+            <span>Juca</span>
+            <span id=exp1 style="width: 140px;">EXP: 0</span> <span id=level1 style="width: 140px;">Level: 1</span>
+            <img src="./images/opala.png" alt=opala onclick="makeCar(1)" />
+            <span id=rarity1>Raridade: ------</span>
+            <span id=min1>Mínima: --- Km/h</span>
+            <span id=max1>Máxima: --- Km/h</span>
+            <span id=derrapagem1>Derrapagem: -- %</span>
+        </div>
+        <div class=carro id=carro2>
+            <span>Edna</span>
+            <span id=exp2 style="width: 140px;">EXP: </span> <span id=level2 style="width: 140px;">Level: 1</span>
+            <img src="./images/brasilia.png" alt=brasilia onclick="makeCar(2)" />
+            <span id=rarity2>Raridade: ------</span>
+            <span id=min2>Mínima: --- Km/h</span>
+            <span id=max2>Máxima: --- Km/h</span>
+            <span id=derrapagem2>Derrapagem: -- %</span>
+        </div>
+    </main>
+    <button id=action onclick="vai()">GO!</button>
+    <span id=vencedor></span>  
+
+    <script src="./script.js"></script>
+</body>
+</html>

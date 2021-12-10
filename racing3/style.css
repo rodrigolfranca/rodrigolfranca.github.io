@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: poppins, sans-serif;
+}
+html, body {
+    margin:0;
+    background-color: #1e1e1e;
+    height: auto;
+    width: 100%;
+}
+header{
+    width: 100%;
+    height: 155px;
+    padding-top: 16px;
+}
+h1 {
+    color:white;
+    text-align: center;
+}
+#inputs {
+    width: 390px;
+    height: 27px;
+    margin: 0 auto;
+    color: white;    
+}
+main {
+    margin: 0 auto;
+    background-color: #FFD046;
+    height: 435px;
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+    padding: 2em;    
+}
+.carro {
+    height: 310px;
+    width: 304px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    border: 1px solid black;
+}
+.carro span {
+    display: block;
+    width: 285px;
+    height: 27px;
+    text-align: left;
+}
+#action {
+    display: block;
+    background-image: url("./images/faixa.jpg");
+    background-size: cover;
+    height: 50px;
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color:#FFD046;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 48px;
+}
+#action:hover , img:hover {
+    cursor: pointer
+}
+#vencedor {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    background-color: #FFD046;
+    height: 100px;
+    width: 475px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-top: 2em;  
+}
+#result span {
+    height: 27px;
+    width: 200px;
+    text-align: center;
+}
