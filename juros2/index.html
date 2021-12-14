@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel=stylesheet href="./style.css">
+    <title>Aquela Lista</title>
+</head>
+<body>
+    <header>
+        <h1>Aquela Lista da Joana</h1>
+    </header>
+    <main>
+        <fieldset>
+            <legend>Adcionar compra</legend>
+            <input type=text name=fname id=fname placeholder="Nome do comprador" />
+            <input type=number name=valor id=valor placeholder="Valor da compra" />
+            <label to=data>Vencimento:</label>
+            <input type="date" name=data id=data />
+        </fieldset>
+        <div id=buttons>
+            <button id=add onclick="adcionar()">Adcionar Compra</button>
+            <button id=calc onclick="calcular()">Calcular Juros</button>
+            <button id=client-btn onclick="agruparPor(debits, 'fname')">Agrupar por Cliente</button>
+            <button id=date-btn onclick="agruparPor(debits, 'date')">Agrupar por Vencimento</button>
+        </div>
+        <table id=result>
+            <tr>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Vencimento</th>
+                <th>Total a Pagar</th>
+            </tr>
+        </table>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>

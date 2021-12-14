@@ -6,7 +6,7 @@ let i = 0;
 let debits = [];
 
 function adcionar(){
-    debits.push({ fname:(fname.value), purchase:(purchase.value), date:(date.value) });
+    debits.push({ fname:(fname.value), purchase:(purchase.value), date:(date.value), toPay:"" });
     result.innerHTML += '<tr><th>'+debits[i].fname+'</th><th>'+debits[i].purchase+'</th><th>'+debits[i].date+'</th><th id=toPay'+i+'></th></tr>';
     fname.value = "";
     purchase.value = "";
@@ -29,10 +29,13 @@ function calcular(){
         }
     });
 
-    total.forEach(element => {        
+    total.forEach(element => {
         document.getElementById(("toPay"+i)).innerHTML = element;
+        debits[i].toPay = element;
         i=i+1; 
     });
+
+    console.log(debits)
 }
 
 function calcDate(purchase) {
@@ -47,3 +50,18 @@ function calcDate(purchase) {
         return 0;
     }
 }
+
+
+function agruparPor(arr, prop) {
+    result.innerHTML = "";
+    return arr.reduce(function (acc, obj) {
+      let key = obj[prop];
+      if (!acc[key]) {
+        acc[key] = [];
+        result.innerHTML += "<tr><th>"+obj[prop]+"</th></tr>"
+      }
+      acc[key].push(obj);
+      result.innerHTML += "<tr><th>"+obj.fname+"</th><th>"+obj.purchase+"</th><th>"+obj.date+"</th><th>"+obj.toPay+"</th></tr>"
+      return acc;
+    }, {});    
+  }
