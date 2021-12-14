@@ -54,7 +54,7 @@ function calcDate(purchase) {
 
 function agruparPor(arr, prop) {
     result.innerHTML = "";
-    return arr.reduce(function (acc, obj) {
+    arr.reduce(function (acc, obj) {
       let key = obj[prop];
       if (!acc[key]) {
         acc[key] = [];
@@ -64,4 +64,4 @@ function agruparPor(arr, prop) {
       result.innerHTML += "<tr><th>"+obj.fname+"</th><th>"+obj.purchase+"</th><th>"+obj.date+"</th><th>"+obj.toPay+"</th></tr>"
       return acc;
     }, {});    
-  }
+}
