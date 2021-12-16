@@ -13,6 +13,7 @@ function adcionar(){
     date.value = "";
     i = i + 1;
 }
+
 function calcular(){
     i = 0
     let total = debits.map (element => {
@@ -50,7 +51,6 @@ function calcDate(purchase) {
         return 0;
     }
 }
-
 
 function agruparPor(arr, prop) {
     result.innerHTML = "";
