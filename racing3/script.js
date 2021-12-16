@@ -72,7 +72,7 @@ let sport = {
 let superSport = {
     vmaxima: [210 , 230] ,
     vminima: [125 , 145] ,
-    skid: [1 , 1,75]
+    skid: [1 , 1.75]
 }
 
 
