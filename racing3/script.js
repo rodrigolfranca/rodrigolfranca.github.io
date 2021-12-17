@@ -313,7 +313,6 @@ function race(){
     exp1.innerHTML = "EXP: "+player[1].EXP;
     exp2.innerHTML = "EXP: "+player[2].EXP;
 }
-
 //gerador de aleatório
 function geraRandom(min, max) {
     return Math.random() * (max - min) + min;
