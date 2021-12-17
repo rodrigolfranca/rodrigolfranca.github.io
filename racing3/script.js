@@ -57,7 +57,6 @@ let player = [
     }
 ]
 
-
 //modelos de carro
 let popular = {
     vmaxima: [180 , 200] ,
@@ -74,7 +73,6 @@ let superSport = {
     vminima: [125 , 145] ,
     skid: [1 , 1.75]
 }
-
 
 //fabricando carros
 function makeCar(id) {
@@ -110,7 +108,6 @@ function makeCar(id) {
     document.getElementById("derrapagem"+id).innerHTML = "Derrapagem: "+player[id].car.skid+"%";
 }
 
-
 //contando as voltas
 function vai() {    
     if (lapradio[0].checked) {
@@ -127,51 +124,38 @@ function vai() {
     }
 }
 
-
 //corrida
 function race(){
-
     count0 = 0;
     count1 = 0;
     count2 = 0;
-
     //atualizando valores por level
     player.forEach(elem => {
-
         if (elem.EXP > 450) {
             elem.EXP = elem.EXP - 450;            
             elem.level = elem.level + 1
         }
-
         if (elem.level > elem.car.level) {
             elem.car.speedMin = parseInt(elem.car.speedMin + ((elem.car.speedMin * (elem.level - elem.car.level))/100))
             elem.car.speedMax = parseInt(elem.car.speedMax + ((elem.car.speedMax * (elem.level - elem.car.level))/100))
             elem.car.level = elem.level            
         }
-
         if (elem.owner == "Pedro") {
-
             min0.innerHTML = "Mínima: "+elem.car.speedMin+"Km/h";
             max0.innerHTML = "Máxima: "+elem.car.speedMax+"Km/h";
             exp0.innerHTML = "EXP: "+elem.EXP;
             level0.innerHTML = "Level: "+elem.level;
-
         } else if (elem.owner == "Juca") {
-
             min1.innerHTML = "Mínima: "+elem.car.speedMin+"Km/h";
             max1.innerHTML = "Máxima: "+elem.car.speedMax+"Km/h";
             exp1.innerHTML = "EXP: "+elem.EXP;
             level1.innerHTML = "Level: "+elem.level;
-
         } else {
-
             min2.innerHTML = "Mínima: "+elem.car.speedMin+"Km/h";
             max2.innerHTML = "Máxima: "+elem.car.speedMax+"Km/h";
             exp2.innerHTML = "EXP: "+elem.EXP;
             level2.innerHTML = "Level: "+elem.level;
-
         }
-
     });
 
     //A Corrida
@@ -187,8 +171,6 @@ function race(){
         vel2 = geraRandom(player[2].car.speedMin , player[2].car.speedMax);
         vel2 = parseInt(vel2 - ((vel2 * player[2].car.skid)/100));
         console.log("Velocidade da Edna: "+vel2);
-
-
         if (vel0 > vel1 && vel0 > vel2) {
             count0 = count0 + 1
             console.log("Volta de Pedro")
@@ -201,26 +183,20 @@ function race(){
             count2 = count2 + 1
             console.log("Volta de Edna")
         }
-
     }
-    
+
     //anuncio + distribuição de EXP
     if (voltas == 10) {
-
         if (count0 > count1 && count0 > count2){
             player[0].EXP = player[0].EXP + 200;
             if (count1 > count2) {
-
                 player[1].EXP = player[1].EXP + 120;
                 player[2].EXP = player[2].EXP + 50;
                 winner.innerHTML = "1º: Pedro - 2º: Juca - 3º: Edna"
-
             } else {
-
                 player[2].EXP = player[2].EXP + 120;
                 player[1].EXP = player[1].EXP + 50;
                 winner.innerHTML = "1º: Pedro - 2º: Edna - 3º: Juca"
-
             }
         } else if (count1 > count0 && count1 > count2){            
             player[1].EXP = player[1].EXP + 200;
@@ -250,9 +226,7 @@ function race(){
             player[1].EXP = player[1].EXP + 100;
             player[2].EXP = player[2].EXP + 100;
         }
-
     } else if (voltas == 70) {
-
         if (count0 > count1 && count0 > count2){
             player[0].EXP = player[0].EXP + 220;
             if (count1 > count2) {
@@ -292,9 +266,7 @@ function race(){
             player[1].EXP = player[1].EXP + 115;
             player[2].EXP = player[2].EXP + 115;
         }
-
     } else {
-
         if (count0 > count1 && count0 > count2){
             player[0].EXP = player[0].EXP + 250;
             if (count1 > count2) {
@@ -333,17 +305,14 @@ function race(){
             player[0].EXP = player[0].EXP + 130;
             player[1].EXP = player[1].EXP + 130;
             player[2].EXP = player[2].EXP + 130;
-        }       
-
+        }
     }
-
+    
     //HUD
     exp0.innerHTML = "EXP: "+player[0].EXP;
     exp1.innerHTML = "EXP: "+player[1].EXP;
     exp2.innerHTML = "EXP: "+player[2].EXP;
-
 }
-
 
 //gerador de aleatório
 function geraRandom(min, max) {
