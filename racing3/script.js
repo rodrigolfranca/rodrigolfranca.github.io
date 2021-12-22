@@ -63,18 +63,18 @@ let player = [
 ]
 //modelos de carro
 let popular = {
-    vmaxima: [180 , 200] ,
-    vminima: [110 , 130] ,
+    speedMax: [180 , 200] ,
+    speedMax: [110 , 130] ,
     skid: [3 , 4]
 }
 let sport = {
-    vmaxima: [195 , 215] ,
-    vminima: [125 , 145] ,
+    speedMax: [195 , 215] ,
+    speedMax: [125 , 145] ,
     skid: [2 , 3]
 }
 let superSport = {
-    vmaxima: [210 , 230] ,
-    vminima: [125 , 145] ,
+    speedMax: [210 , 230] ,
+    speedMax: [125 , 145] ,
     skid: [1 , 1.75]
 }
 //fabricando carros
@@ -88,16 +88,16 @@ function makeCar(id) {
         player[id].car.rarity = "Super Sport"
     }
     if ( player[id].car.rarity == "Popular") {        
-        player[id].car.speedMin = parseInt(geraRandom(popular.vminima[0] , popular.vminima[1]));
-        player[id].car.speedMax = parseInt(geraRandom(popular.vmaxima[0] , popular.vmaxima[1]));
+        player[id].car.speedMin = parseInt(geraRandom(popular.speedMax[0] , popular.speedMax[1]));
+        player[id].car.speedMax = parseInt(geraRandom(popular.speedMax[0] , popular.speedMax[1]));
         player[id].car.skid = geraRandom(popular.skid[0] , popular.skid[1]).toFixed(2);
     } else if (player[id].car.rarity == "Sport") {
-        player[id].car.speedMin = parseInt(geraRandom(sport.vminima[0] , sport.vminima[1]));
-        player[id].car.speedMax = parseInt(geraRandom(sport.vmaxima[0] , sport.vmaxima[1]));
+        player[id].car.speedMin = parseInt(geraRandom(sport.speedMax[0] , sport.speedMax[1]));
+        player[id].car.speedMax = parseInt(geraRandom(sport.speedMax[0] , sport.speedMax[1]));
         player[id].car.skid = geraRandom(sport.skid[0] , sport.skid[1]).toFixed(2);
     } else {
-        player[id].car.speedMin = parseInt(geraRandom(superSport.vminima[0] , superSport.vminima[1]));
-        player[id].car.speedMax = parseInt(geraRandom(superSport.vmaxima[0] , superSport.vmaxima[1]));
+        player[id].car.speedMin = parseInt(geraRandom(superSport.speedMax[0] , superSport.speedMax[1]));
+        player[id].car.speedMax = parseInt(geraRandom(superSport.speedMax[0] , superSport.speedMax[1]));
         player[id].car.skid = geraRandom(superSport.skid[0] , superSport.skid[1]).toFixed(2);
     }
     player[id].car.level = 1;
@@ -105,6 +105,7 @@ function makeCar(id) {
     document.getElementById("min"+id).innerHTML = "Mínima: "+player[id].car.speedMin+"Km/h";
     document.getElementById("max"+id).innerHTML = "Máxima: "+player[id].car.speedMax+"Km/h";
     document.getElementById("derrapagem"+id).innerHTML = "Derrapagem: "+player[id].car.skid+"%";
+    return true;
 }
 //contando as voltas
 function vai() {    
@@ -123,6 +124,7 @@ function vai() {
         voltas = 160;
         race();
     }
+    return true;
 }
 
 //corrida
@@ -217,6 +219,7 @@ function race(){
     exp0.innerHTML = "EXP: "+player[0].EXP;
     exp1.innerHTML = "EXP: "+player[1].EXP;
     exp2.innerHTML = "EXP: "+player[2].EXP;
+    return true;
 }
 //gerador de aleatório
 function geraRandom(min, max) {
