@@ -1,4 +1,4 @@
-let vel0, vel1, vel2, voltas, aux, pontos = 0;
+let voltas, aux, pontos = 0;
 const lapradio = document.querySelectorAll(".input");
 const min0 = document.getElementById("min0")
 const max0 = document.getElementById("max0")
@@ -27,6 +27,7 @@ let player = [
         speedMax: 0,
         skid: 0
         },
+        speed: 0,
         voltas: 0,
         EXP: 0,
         level: 1,
@@ -40,6 +41,7 @@ let player = [
         speedMax: 0,
         skid: 0
         },
+        speed: 0,
         voltas: 0,
         EXP: 0,
         level: 1,
@@ -53,6 +55,7 @@ let player = [
         speedMax: 0,
         skid: 0        
         },
+        speed: 0,
         voltas: 0,
         EXP: 0,
         level: 1,
@@ -156,18 +159,17 @@ function race(){
         }
     });
     //A Corrida
-    for (let i=0; i<=voltas-1; i++) {
-        console.log("Volta: "+(i+1))
-        vel0 = (geraRandom(player[0].car.speedMin , player[0].car.speedMax)) * (1 - (player[0].car.skid / 100));
-        vel1 = (geraRandom(player[1].car.speedMin , player[1].car.speedMax)) * (1 - (player[1].car.skid / 100));
-        vel2 = (geraRandom(player[2].car.speedMin , player[2].car.speedMax)) * (1 - (player[0].car.skid / 100));
-        if (vel0 > vel1 && vel0 > vel2) {
+    for (let i=0; i<=voltas-1; i++) {        
+        player[0].speed = (geraRandom(player[0].car.speedMin , player[0].car.speedMax)) * (1 - (player[0].car.skid / 100));
+        player[1].speed = (geraRandom(player[1].car.speedMin , player[1].car.speedMax)) * (1 - (player[1].car.skid / 100));
+        player[2].speed = (geraRandom(player[2].car.speedMin , player[2].car.speedMax)) * (1 - (player[0].car.skid / 100));
+        if (player[0].speed > player[1].speed && player[0].speed > player[2].speed) {
             player[0].voltas = player[0].voltas + 1
         }
-        if (vel1 > vel0 && vel1 > vel2) {
+        if (player[1].speed > player[0].speed && player[1].speed > player[2].speed) {
             player[1].voltas = player[1].voltas + 1
         }
-        if (vel2 > vel1 && vel2 > vel0) {
+        if (player[2].speed > player[1].speed && player[2].speed > player[0].speed) {
             player[2].voltas = player[2].voltas + 1
         }
     }
