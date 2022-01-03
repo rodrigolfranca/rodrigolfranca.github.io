@@ -1,21 +1,21 @@
 let voltas, aux, pontos = 0;
 const lapradio = document.querySelectorAll(".input");
-const min0 = document.getElementById("min0")
-const max0 = document.getElementById("max0")
-const derrapagem0 = document.getElementById("derrapagem0")
-const min1 = document.getElementById("min1")
-const max1 = document.getElementById("max1")
-const derrapagem1 = document.getElementById("derrapagem1")
-const min2 = document.getElementById("min2")
-const max2 = document.getElementById("max2")
+const min0 = document.getElementById("min0");
+const max0 = document.getElementById("max0");
+const derrapagem0 = document.getElementById("derrapagem0");
+const min1 = document.getElementById("min1");
+const max1 = document.getElementById("max1");
+const derrapagem1 = document.getElementById("derrapagem1");
+const min2 = document.getElementById("min2");
+const max2 = document.getElementById("max2");
 const derrapagem2 = document.getElementById("derrapagem2");
-const winner = document.getElementById("vencedor")
-const exp0 = document.getElementById("exp0")
-const level0 = document.getElementById("level0")
-const exp1 = document.getElementById("exp1")
-const level1 = document.getElementById("level1")
-const exp2 = document.getElementById("exp2")
-const level2 = document.getElementById("level2")
+const winner = document.getElementById("vencedor");
+const exp0 = document.getElementById("exp0");
+const level0 = document.getElementById("level0");
+const exp1 = document.getElementById("exp1");
+const level1 = document.getElementById("level1");
+const exp2 = document.getElementById("exp2");
+const level2 = document.getElementById("level2");
 //carros criados
 let player = [
     {
