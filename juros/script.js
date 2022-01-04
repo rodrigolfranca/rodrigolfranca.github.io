@@ -5,6 +5,7 @@ const result = document.getElementById("result");
 let i = 0;
 let debits = [];
 
+/* Essa função inseri os valores no formulário dentro do vetor de objetos e reseta o formulário */
 function adcionar(){
     debits.push({ fname:(fname.value), purchase:(purchase.value), date:(date.value) });
     result.innerHTML += '<tr><th>'+debits[i].fname+'</th><th>'+debits[i].purchase+'</th><th>'+debits[i].date+'</th><th id=toPay'+i+'></th></tr>';
@@ -13,12 +14,13 @@ function adcionar(){
     date.value = "";
     i = i + 1;
 }
+
+/* Essa função faz o map do vetor de objetos criado na adcionar() realizando o calculo dos juros e adciona os resultados na tabela */
 function calcular(){
     i = 0
     let total = debits.map (function (element){
-        let diffDate = calcDate(element.date)
-        let toPay = parseFloat(element.purchase)
-
+        let diffDate = calcDate(element.date);
+        let toPay = parseFloat(element.purchase);
         if (diffDate > 0) {
             let mora = toPay*0.02;
             let byDay = toPay*(diffDate*0.001);
@@ -34,6 +36,8 @@ function calcular(){
     });
 }
 
+/* Essa função confere se existe a diferença entre a data nos parametros e a data atual e,
+ se houver diferença, retorna essa diferença em dias */
 function calcDate(purchase) {
     let today = parseInt((Date.now() - 10800000)/86400000);
     let ms = Date.parse(purchase);
