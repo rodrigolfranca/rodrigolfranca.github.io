@@ -15,7 +15,7 @@ function adcionar(){
 }
 function calcular(){
     i = 0
-    let total = debits.map (element => {
+    let total = debits.map (function (element){
         let diffDate = calcDate(element.date)
         let toPay = parseFloat(element.purchase)
 
@@ -28,7 +28,6 @@ function calcular(){
             return toPay.toFixed(2);
         }
     });
-
     total.forEach(element => {        
         document.getElementById(("toPay"+i)).innerHTML = element;
         i=i+1; 
