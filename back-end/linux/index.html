@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang=pt-br>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <fieldset>
+            <legend>Busca</legend>
+            <select name=params id=params>
+                <option value=id>ID:</option>
+                <option value=name>Nome:</option>
+                <option value=email>E-mail:</option>
+            </select>
+            <input type=text name=valor id=valor placeholder="Buscar" />
+            <button id=go onclick="executar()">Buscar</button>            
+        </fieldset>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+            </tr>
+        </table>
+    </main>
+    <!-- script -->    
+    <script src="./script.js"></script>    
+</body>
+</html>

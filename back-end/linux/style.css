@@ -1,0 +1,21 @@
+fieldset {
+    height: 30px;
+    width: fit-content;
+}
+header , main {
+    height:fit-content;
+    width: fit-content;
+    margin: 1em auto;
+}
+table {
+    margin-top: 1em;
+    border-collapse: collapse;
+}
+tr , th {
+    height: 30px;
+    width: 250px;
+    border: 1px black solid;            
+}
+th:first-child {
+    width: 50px;
+}
