@@ -39,9 +39,9 @@ function calcular(){
 /* Essa função confere se existe a diferença entre a data nos parametros e a data atual e,
  se houver diferença, retorna essa diferença em dias */
 function calcDate(purchase) {
-    let today = parseInt((Date.now() - 10800000)/86400000);
+    let today = parseInt((Date.now() - 10800000)/(1000 * 60 * 60 * 24));
     let ms = Date.parse(purchase);
-    let date = new Date(ms)/86400000;
+    let date = new Date(ms)/(1000 * 60 * 60 * 24);
     let diffDate = today - date;
     if (diffDate > 0) {
         return diffDate;
