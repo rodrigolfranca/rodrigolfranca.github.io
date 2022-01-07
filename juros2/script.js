@@ -55,7 +55,7 @@ function calcDate(purchase) {
 function agruparPor(arr, propriedade) {
     result.innerHTML = "";
 
-    arr.reduce(function (clientAcc, clientAtual) {
+    const reducedArr = arr.reduce(function (clientAcc, clientAtual) {
       let key = clientAtual[propriedade];
 
       if (!clientAcc[key]) clientAcc[key] = [];
@@ -64,7 +64,10 @@ function agruparPor(arr, propriedade) {
       return clientAcc;
     
     }, {});
+    listarGrupo(reducedArr);
+}
 
+function listarGrupo(arr) {
     /* result.innerHTML += "<tr><th>"+clientAtual[propriedade]+"</th></tr>"
     result.innerHTML += "<tr><th>"+clientAtual.fname+"</th><th>"+clientAtual.purchase+"</th><th>"+clientAtual.date+"</th><th>"+clientAtual.toPay+"</th></tr>" */
 }
