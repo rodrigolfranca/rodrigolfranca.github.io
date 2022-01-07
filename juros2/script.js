@@ -57,11 +57,14 @@ function agruparPor(arr, propriedade) {
 
     arr.reduce(function (clientAcc, clientAtual) {
       let key = clientAtual[propriedade];
+
       if (!clientAcc[key]) clientAcc[key] = [];
+
       clientAcc[key].push(clientAtual);      
       return clientAcc;
-    }, {});
     
+    }, {});
+
     /* result.innerHTML += "<tr><th>"+clientAtual[propriedade]+"</th></tr>"
     result.innerHTML += "<tr><th>"+clientAtual.fname+"</th><th>"+clientAtual.purchase+"</th><th>"+clientAtual.date+"</th><th>"+clientAtual.toPay+"</th></tr>" */
 }
