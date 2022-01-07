@@ -52,16 +52,16 @@ function calcDate(purchase) {
     }
 }
 
-function agruparPor(arr, prop) {
+function agruparPor(arr, propriedade) {
     result.innerHTML = "";
-    arr.reduce(function (acc, obj) {
-      let key = obj[prop];
-      if (!acc[key]) {
-        acc[key] = [];
-        result.innerHTML += "<tr><th>"+obj[prop]+"</th></tr>"
+    arr.reduce(function (clientAcc, clientAtual) {
+      let key = clientAtual[propriedade];
+      if (!clientAcc[key]) {
+        clientAcc[key] = [];
+        result.innerHTML += "<tr><th>"+clientAtual[propriedade]+"</th></tr>"
       }
-      acc[key].push(obj);
-      result.innerHTML += "<tr><th>"+obj.fname+"</th><th>"+obj.purchase+"</th><th>"+obj.date+"</th><th>"+obj.toPay+"</th></tr>"
-      return acc;
+      clientAcc[key].push(clientAtual);
+      result.innerHTML += "<tr><th>"+clientAtual.fname+"</th><th>"+clientAtual.purchase+"</th><th>"+clientAtual.date+"</th><th>"+clientAtual.toPay+"</th></tr>"
+      return clientAcc;
     }, {});    
 }
