@@ -54,14 +54,14 @@ function calcDate(purchase) {
 
 function agruparPor(arr, propriedade) {
     result.innerHTML = "";
+
     arr.reduce(function (clientAcc, clientAtual) {
       let key = clientAtual[propriedade];
-      if (!clientAcc[key]) {
-        clientAcc[key] = [];
-        result.innerHTML += "<tr><th>"+clientAtual[propriedade]+"</th></tr>"
-      }
-      clientAcc[key].push(clientAtual);
-      result.innerHTML += "<tr><th>"+clientAtual.fname+"</th><th>"+clientAtual.purchase+"</th><th>"+clientAtual.date+"</th><th>"+clientAtual.toPay+"</th></tr>"
+      if (!clientAcc[key]) clientAcc[key] = [];
+      clientAcc[key].push(clientAtual);      
       return clientAcc;
-    }, {});    
+    }, {});
+    
+    /* result.innerHTML += "<tr><th>"+clientAtual[propriedade]+"</th></tr>"
+    result.innerHTML += "<tr><th>"+clientAtual.fname+"</th><th>"+clientAtual.purchase+"</th><th>"+clientAtual.date+"</th><th>"+clientAtual.toPay+"</th></tr>" */
 }
