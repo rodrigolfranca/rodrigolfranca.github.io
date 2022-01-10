@@ -29,14 +29,12 @@ function calcular(){
             return toPay.toFixed(2);
         }
     });
-
+    
     total.forEach(element => {
         document.getElementById(("toPay"+i)).innerHTML = element;
         debits[i].toPay = element;
         i=i+1; 
     });
-
-    console.log(debits)
 }
 
 function calcDate(purchase) {
