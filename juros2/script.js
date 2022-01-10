@@ -52,22 +52,24 @@ function calcDate(purchase) {
     }
 }
 
-function agruparPor(arr, propriedade) {
+function agruparPor(propriedade) {
     result.innerHTML = "";
 
-    const reducedArr = arr.reduce(function (clientAcc, clientAtual) {
-      let key = clientAtual[propriedade];
-
-      if (!clientAcc[key]) clientAcc[key] = [];
-
-      clientAcc[key].push(clientAtual);      
-      return clientAcc;
-    
+    const reducedArr = debits.reduce(function (clientAcc, clientAtual) {
+        let key = clientAtual[propriedade];
+        
+        if (!clientAcc[key]) clientAcc[key] = [];
+        clientAcc[key].push(clientAtual);
+        return clientAcc;
     }, {});
     listarGrupo(reducedArr);
 }
 
 function listarGrupo(arr) {
-    /* result.innerHTML += "<tr><th>"+clientAtual[propriedade]+"</th></tr>"
-    result.innerHTML += "<tr><th>"+clientAtual.fname+"</th><th>"+clientAtual.purchase+"</th><th>"+clientAtual.date+"</th><th>"+clientAtual.toPay+"</th></tr>" */
+    for (let key in arr) {
+        result.innerHTML += "<tr><th>"+key+"</th></tr>"
+        arr[key].forEach(clientes => {
+            result.innerHTML += "<tr><th>"+clientes.fname+"</th><th>"+clientes.purchase+"</th><th>"+clientes.date+"</th><th>"+clientes.toPay+"</th></tr>"
+        });
+    }
 }
