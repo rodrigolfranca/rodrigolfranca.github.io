@@ -13,19 +13,25 @@ filter.addEventListener("change", function(){
     switch (filter.value) {
         case 'data':
             filtro1.type = "date";
+            filtro1.value = ''
             filtro2.type = "date";
+            filtro2.value = ''
             break;
         case 'valor':
             filtro1.type = "number";
             filtro1.placeholder = "valor mínimo";
+            filtro1.value = ''
             filtro2.type = "number";
             filtro2.placeholder = "valor máximo";
+            filtro2.value = ''
             break;
         case 'mes':
             filtro1.type = "text";
             filtro1.placeholder = "Digite o mês (ex: Julho)";
+            filtro1.value = ''
             filtro2.type = "text";
             filtro2.placeholder = "Digite o ano (ex: 2022)";
+            filtro2.value = ''
             break;
         case '-1':
             filtro1.type = 'text';
