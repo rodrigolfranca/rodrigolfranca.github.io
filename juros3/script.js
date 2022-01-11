@@ -30,8 +30,10 @@ filter.addEventListener("change", function(){
         case '-1':
             filtro1.type = 'text';
             filtro1.placeholder = '';
+            filtro1.value = ''
             filtro2.type = 'text';
             filtro2.placeholder = '';
+            filtro2.value = '';
             break;
     }
 });
