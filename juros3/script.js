@@ -4,6 +4,7 @@ const date = document.getElementById("data");
 const result = document.getElementById("result");
 const filter = document.getElementById("filter");
 const filtro1 = document.getElementById("filtro1");
+const filtromes = document.getElementById("filtromes")
 const filtro2 = document.getElementById("filtro2");
 let i = 0;
 let debits = [];
@@ -14,6 +15,8 @@ filter.addEventListener("change", function(){
         case 'data':
             filtro1.type = "date";
             filtro1.value = ''
+            filtro1.style.display = "inline-block"
+            filtromes.style.display = "none"
             filtro2.type = "date";
             filtro2.value = ''
             break;
@@ -21,14 +24,17 @@ filter.addEventListener("change", function(){
             filtro1.type = "number";
             filtro1.placeholder = "valor mínimo";
             filtro1.value = ''
+            filtro1.style.display = "inline-block"
+            filtromes.style.display = "none"
             filtro2.type = "number";
             filtro2.placeholder = "valor máximo";
             filtro2.value = ''
             break;
         case 'mes':
-            filtro1.type = "text";
-            filtro1.placeholder = "Digite o mês (ex: Julho)";
+            filtro1.type = "text";            
             filtro1.value = ''
+            filtro1.style.display = "none"
+            filtromes.style.display = "inline-block"
             filtro2.type = "text";
             filtro2.placeholder = "Digite o ano (ex: 2022)";
             filtro2.value = ''
@@ -37,6 +43,8 @@ filter.addEventListener("change", function(){
             filtro1.type = 'text';
             filtro1.placeholder = '';
             filtro1.value = ''
+            filtro1.style.display = "inline-block"
+            filtromes.style.display = "none"
             filtro2.type = 'text';
             filtro2.placeholder = '';
             filtro2.value = '';
@@ -115,81 +123,52 @@ function doFilter() {
     if (filter.value === '-1') {
         exibirFiltrado(debits);
     } else if (filter.value === 'data') {
-        let filtered = debits.filter(element => {
-            if (filtro1.value && filtro2.value) {
-                return (element.date >= filtro1.value && element.date <= filtro2.value)
-            }
-            if (filtro1.value) {
-                return (element.date >= filtro1.value)
-            }
-            if (filtro2.value) {
-                return (element.date <= filtro2.value)
-            }
-        });
-        exibirFiltrado(filtered);        
+        let filtered = debits.filter(filterByDate);
+        //
+        //
+        exibirFiltrado(filtered);
     } else if (filter.value === 'valor') {
-        let filtered = debits.filter(element => {
-            if (filtro1.value && filtro2.value) {
-                return (parseFloat(element.purchase) >= parseFloat(filtro1.value) && parseFloat(element.purchase) <= parseFloat(filtro2.value))
-            }
-            if (filtro1.value) {
-                return (parseFloat(element.purchase) >= parseFloat(filtro1.value))
-            }
-            if (filtro2.value) {
-                return (parseFloat(element.purchase) <= parseFloat(filtro2.value))
-            }
-        });
+        let filtered = debits.filter(filterByValue);
+        //
+        //
         exibirFiltrado(filtered);
     }  else {
-        let mes
-        switch ((filtro1.value).toLowerCase()) {
-            case 'janeiro' :
-                mes="01";
-                break;
-            case 'fevereiro' :
-                mes="02";
-                break;
-            case 'março' :
-                mes="03";
-                break;
-            case 'abril' :
-                mes="04";
-                break;
-            case 'maio' :
-                mes="05";
-                break;
-            case 'junho' :
-                mes="06";
-                break;
-            case 'julho' :
-                mes="07";
-                break;
-            case 'agosto' :
-                mes="08";
-                break;
-            case 'setembro' :
-                mes="09";
-                break;
-            case 'outubro' :
-                mes="10";
-                break;
-            case 'novembro' :
-                mes="11";
-                break;
-            case 'dezembro' :
-                mes="12";
-                break;
-            default:
-                alert("Mes inválido");
-        }
-        let data = filtro2.value+"-"+mes+"-";
-        let filtered = debits.filter(element => {
-            return (element.date >= (data+"01") && element.date <= (data+"31"))
-        });
+        let filtered = debits.filter(filterByMonth);
+        //
+        //
         exibirFiltrado(filtered);
     }
 }
 
+function filterByDate(element){
+    if (filtro1.value && filtro2.value) {
+        return (element.date >= filtro1.value && element.date <= filtro2.value)
+    }
+    if (filtro1.value) {
+        return (element.date >= filtro1.value)
+    }
+    if (filtro2.value) {
+        return (element.date <= filtro2.value)
+    }
+}
+
+function filterByValue(element) {      
+    if (filtro1.value && filtro2.value) {
+        return (parseFloat(element.purchase) >= parseFloat(filtro1.value) && parseFloat(element.purchase) <= parseFloat(filtro2.value))
+    }
+    if (filtro1.value) {
+        return (parseFloat(element.purchase) >= parseFloat(filtro1.value))
+    }
+    if (filtro2.value) {
+        return (parseFloat(element.purchase) <= parseFloat(filtro2.value))
+    }
+}
+
+function filterByMonth(element) {
+    let data = filtro2.value+"-"+filtromes.value+"-";
+    return (element.date >= (data+"01") && element.date <= (data+"31"));
+}
+    
 function exibirFiltrado(arr) {
     result.innerHTML = tableHead;
     arr.forEach(clientes => {

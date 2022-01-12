@@ -58,3 +58,6 @@ th {
 th:first-child{
     width: 500px;
 }
+#filtromes {
+    display: none;
+}
