@@ -4,7 +4,7 @@ const interval = setInterval( megaSena , 1000 );
 // Realiza o sorteio //
 function megaSena(){
     let numero = sorteio();    
-    if (sorteado.indexOf(numero) != -1) megaSena();
+    while (sorteado.indexOf(numero) != -1) numero = sorteio();
     sorteado.push(numero);
     document.getElementById("numero"+(sorteado.length-1)).innerHTML = numero;
 
