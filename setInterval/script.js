@@ -1,15 +1,14 @@
 const sorteado = [];
-const interval = setInterval( megaSena() , 1000 );
+const interval = setInterval( megaSena , 1000 );
 
 // Realiza o sorteio //
 function megaSena(){
     let numero = sorteio();    
-    while (sorteado.indexOf(numero) != -1) numero = sorteio();
+    if (sorteado.indexOf(numero) != -1) megaSena();
     sorteado.push(numero);
-    console.log("numero"+sorteado.length+": "+numero);
+    document.getElementById("numero"+(sorteado.length-1)).innerHTML = numero;
 
     if (sorteado.length === 6) {
-        console.log('a')
         clearInterval(interval);
     }
 }
