@@ -6,7 +6,7 @@ function megaSena(){
     let numero = sorteio();    
     while (sorteado.indexOf(numero) != -1) numero = sorteio();
     sorteado.push(numero);
-    document.getElementById("numero"+(sorteado.length-1)).innerHTML = numero;
+    document.getElementById("numero"+sorteado.length).innerHTML = numero;
 
     if (sorteado.length === 6) {
         clearInterval(interval);
