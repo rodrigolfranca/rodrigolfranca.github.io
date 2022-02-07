@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Simples</title>
+    <link rel=stylesheet href="./style.css">
+</head>
+    <body>
+        <main>
+            <input type=number id=fvalue class=screen step='10' placeholder="Primeiro Valor" />
+            <input type=number id=svalue class=screen placeholder="Segundo Valor" />
+            <button class=btn onclick="operator('+');">+</button>
+            <button class=btn onclick="operator('-');">-</button>
+            <button class=btn onclick="operator('x');">x</button>
+            <button class=btn onclick="operator('/');">/</button>
+            <span class=screen>Resultado</span>
+            <button id=reset onclick="reset();">Limpar</button>
+        </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+        <script src="./script.js"></script>        
+    </body>
+</html>
