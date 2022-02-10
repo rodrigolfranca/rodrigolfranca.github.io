@@ -41,9 +41,8 @@ class Calculator {
 }
 
 const calc = new Calculator
-const number = $('.btn-number');
 
-number.click(function(){
+$(".btn-number").click(function(){
     $('#result').append(this.value)
 })
 
