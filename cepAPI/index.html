@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <title>Search by CEP</title>
+    </head>
+    <body>
+        <header>
+            <h1>Busca de CEP</h1>
+        </header>
+        <main>
+            <aside>
+                <fieldset>
+                    <label for="inCep">Insira seu CEP:</label>
+                    <input type="text" id="inCep" placeholder="Ex: 02432-100" />
+                    <button id="btn">Buscar</button>
+                </fieldset>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Informações</th>
+                        </tr>
+                    </thead>
+                    <tbody id='tableInfo'></tbody>
+                </table>                
+            </aside>
+            <iframe id="iframe" src=""></iframe>
+        </main>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>

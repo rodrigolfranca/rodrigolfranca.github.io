@@ -59,7 +59,8 @@ $('.btn-operator').click(function(){
     }
 })
 
-$("#resulter").click(function(){
+$("#resulter").click(function(){    
     calc.setOperand2($("#result").text());
+    if (calc.operand2 === "") calc.setOperand2("0")
     $("#result").text(calc.getResult());
 })
