@@ -150,21 +150,20 @@ $(".fighter").click(function(){
 $("#fight-btn").click(function(){
     
     if (p1 && p2) {
-    $('#seletor-painel').fadeOut("slow");
-    selectCharacterAudio.pause();
-    $('main').fadeIn(1000);
-    $('main').css('display', 'flex');
-    mostrarLutadores();
-    if (typeof battleTheme.loop == 'boolean'){
-        battleTheme.loop = true;
-    } else {
-        battleTheme.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        }, false);
-    }
-    battleTheme.play();
-    battleTheme.play();
+        $('#seletor-painel').fadeOut("slow");
+        selectCharacterAudio.pause();
+        $('main').fadeIn(1000);
+        $('main').css('display', 'flex');
+        mostrarLutadores();
+        if (typeof battleTheme.loop == 'boolean'){
+            battleTheme.loop = true;
+        } else {
+            battleTheme.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+        }
+        battleTheme.play();    
     }
 
 })
