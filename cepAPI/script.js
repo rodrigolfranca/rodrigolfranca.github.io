@@ -26,7 +26,7 @@ $('#btn').click(function(){
                 $("#tableInfo").append(htmlToAppend);
                 $('#iframe').attr('src', `https://www.google.com/maps?api=1&q=${data.lat}%2C${data.lng}&hl=es;z=14&output=embed`);
             })
-            .falt( err => {
+            .fail( err => {
                 console.log(err)
             })
     } else {

@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Slabo 27px', serif;
+}
+body{    
+    margin: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: #1e1e1e;
+}
+header {
+    width: 300px;
+    height: 75px;
+    position: fixed;
+    top: 0px;
+    right: calc(50% - 150px);    
+    background-color: #1e1e1e;
+    color: #e00202;
+    text-align: center;    
+}
+header h1{
+    border-top: #e00202 2px solid;
+    border-bottom: #e00202 2px solid;
+}
+#starter, #victory {
+    position: absolute;   
+    width: 100%;
+    height: 600px;
+    top:0px;
+    background-color: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+}
+#inicio, #victoryText {
+    font-size: 72px;
+    color: red;
+    border-top: #e00202 2px solid;
+    border-bottom: #e00202 2px solid;
+}
+
+#seletor-painel{    
+    margin: 85px auto 0px;
+    width: 475px;
+    height: fit-content;
+    background-color: #242144;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 11px black;
+}
+#seletor-painel h3 {
+    margin:0px;
+    font-size: 30px;    
+}
+#fighter-selector-frame {
+    margin: 0 auto;
+    height: 312px;
+    width: 328px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 4px;
+    row-gap: 4px;
+}
+.fighter {
+    box-sizing: content-box;
+    height: 150px;
+    width: 75px;
+    background-color: #fff;
+    border:2px solid black;
+    font-size: 36px;
+    font-weight: bolder;
+}
+#chaves {
+    background-image: url(./images/chaves-small-right.png);
+}
+#chiquinha {
+    background-image: url(./images/chiquinha-small-right.png);
+}
+#quico {
+    background-image: url(./images/quico-small-right.png);
+}
+#madruga {
+    background-image: url(./images/madruga-small-right.png);
+}
+#barriga {
+    background-image: url(./images/barriga-small-right.png);
+}
+#professor {
+    background-image: url(./images/professor-small-right.png);
+}
+#florinda {
+    background-image: url(./images/florinda-small-right.png);
+}#clotilde {
+    background-image: url(./images/clotilde-small-right.png);
+}
+
+main {
+    display: none;
+    flex-wrap: wrap;
+    margin: 85px auto 0;
+    width: 1000px;
+    height: 540px;
+    column-gap: 5px;
+}
+#playerOne, #playerTwo {
+    height: 500px;
+    width: 300px;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 10px;
+    color:#fefefe;
+    box-shadow: 5px 5px 11px black;
+}
+#log{
+    height: 500px;
+    width: 390px;
+    text-align: center;
+}
+#logText {
+    resize: none;
+}
+#img-one, #img-two{
+    height: 200px;
+    width: 100px;
+}
+
+#log img {
+    margin-bottom: 150px;
+}
+#playerOne {
+    background-color: #0b1057;    
+}
+#playerTwo {
+    background-color: #580303;
+}
+#oneVidaMax , #twoVidaMax {
+    margin: 3px auto;
+    height: 27px;
+    width: 202px;
+    border: 1px solid yellow;
+    background-color: yellow; 
+}
+#twoVida, #oneVida {
+    margin: 0px;
+    height: 25px;
+    width: 200px;    
+    background-color: red;   
+}
+
+p {
+    margin: 3px
+}
+#victory {
+    display: none;
+}
