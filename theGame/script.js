@@ -111,15 +111,19 @@ $('#inicio').click(function(){
 //  Seleção de Personagem : hover
 $(".fighter").hover(function(){
     if (!p1) {
+
         $(`#${this.getAttribute('id')}`).css("border","solid 2px blue");
         $(`#${this.getAttribute('id')}`).css("color", "blue")
         $(`#${this.getAttribute('id')}`).text("P1");
         hoverCharacter.play();
+
     } else if (!p2) {
+
         $(`#${this.getAttribute('id')}`).css("border","solid 2px red");
         $(`#${this.getAttribute('id')}`).css("color", "red")
         $(`#${this.getAttribute('id')}`).text("P2");
         hoverCharacter.play();
+
     }
     
 },function(){
@@ -134,7 +138,8 @@ $(".fighter").click(function(){
         $(`#${this.getAttribute('id')}`).css("border", "solid 2px black")
         $(`#${this.getAttribute('id')}`).css("filter", "grayscale(100%)")
         oneSelect.play();
-        $("#fight-btn").text("PLAYER TWO")
+        $("#fight-btn").text("PLAYER TWO");
+        $("#fight-btn").css("color", "red");
 
     } else if (!p2) {
 
@@ -142,7 +147,8 @@ $(".fighter").click(function(){
         $(`#${this.getAttribute('id')}`).css("border", "solid 2px black")
         $(`#${this.getAttribute('id')}`).css("filter", "grayscale(100%)")
         twoSelect.play();
-        $("#fight-btn").text("START BATTLE") 
+        $("#fight-btn").text("CLICK HERE TO BATTLE");
+        $("#fight-btn").css("color", "yellow");
         
     }
 });

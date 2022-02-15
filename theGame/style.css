@@ -44,27 +44,29 @@ header h1{
 
 #seletor-painel{    
     margin: 85px auto 0px;
-    width: 475px;
-    height: fit-content;
-    background-color: #242144;
+    width: 495px;
+    height: 448px;
+    background-color: #12102b;
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 10px;
+    border: 1px black solid;
     box-shadow: 5px 5px 11px black;
+    color: yellow;
 }
 #seletor-painel h3 {
     margin:0px;
     font-size: 30px;    
 }
 #fighter-selector-frame {
-    margin: 0 auto;
+    margin: 15px auto 15px auto;
     height: 312px;
     width: 328px;
     display: flex;
     flex-wrap: wrap;
     column-gap: 4px;
-    row-gap: 4px;
+    row-gap: 4px;    
 }
 .fighter {
     box-sizing: content-box;
@@ -74,6 +76,15 @@ header h1{
     border:2px solid black;
     font-size: 36px;
     font-weight: bolder;
+}
+.fighter:hover {
+    cursor: pointer;
+}
+#fight-btn{
+    color: blue;
+}
+#fight-btn:hover {
+    cursor:pointer;
 }
 #chaves {
     background-image: url(./images/chaves-small-right.png);
