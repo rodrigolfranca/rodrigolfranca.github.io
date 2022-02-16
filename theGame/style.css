@@ -2,6 +2,7 @@
     font-family: 'mortalkombat3';
     src: url('./fonts/mortalkombat3.ttf');
 }
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
 * {
     box-sizing: border-box;    
 }
@@ -85,7 +86,7 @@ header h1{
 #fight-btn{
     color: blue;
 }
-#fight-btn:hover , #inicio:hover {
+#fight-btn:hover , #starter:hover {
     cursor:pointer;
 }
 #chaves {
@@ -171,3 +172,13 @@ p {
 #victory {
     display: none;
 }
+#logText {
+    background-color: #0f0f0f;
+    border: yellow 2px solid;
+    color: white;
+    text-align: center;
+    font-family: 'Slabo 27px', serif;
+}
+.scroll::-webkit-scrollbar {
+    display: none;
+  }

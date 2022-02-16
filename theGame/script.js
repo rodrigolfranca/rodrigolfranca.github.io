@@ -63,66 +63,99 @@ chooseHero = [
 
 //  Função para ataques normais
 function ataque(atacante , defensor) {
-    log(`${atacante.name} tentara atacar com um ataque normal \n`);
+
+    $('#logText').val("");
+    log(`${atacante.name} tentara atacar com um ataque normal \n` , atacante);
     let dado = parseInt(geraRandom(1,21));
     let def;
     (defStatus)? def = defensor.def * 2 : def = defensor.def;
     defStatus = 0;
+
     if (dado > def) {
-        log(`${dado} => ${def} \n`);
-        log(`${atacante.atkText}${defensor.name}\n`);
-        defensor.hp -= atacante.atkPower;            
+
+        log(`${dado} => ${def} \n` , atacante);
+        log(`${atacante.atkText}${defensor.name}\n` , atacante);
+        defensor.hp -= atacante.atkPower;   
+
     } else {
-        log(`${dado} => ${def}\n`);
-        log(`Errou!\n`);
+
+        log(`${dado} => ${def}\n` , atacante);
+        log(`Errou!\n` , atacante);
+
     }
+    
     mostrarLutadores();
     checaVidas();
-    return false
+    
 }
 
 //  Função de Defesa
-function defesa(p) {
-    log( `${p.name} se prepara para receber um ataque, sua defesa dobra!\n` );
+function defesa(jogador) {
+    
+    $('#logText').val("");
+    defStatus = 1;
+    log( `${jogador.name} se prepara para receber um ataque, sua defesa dobra!\n` , jogador );
+
 }
 
 //  Função que sorteia as ações da CPU
 function enemyAction(){
+
     setTimeout(() => {
+
         let action = geraRandom(1, 10);
         if (action > 4) {
+
             ataque(p2 , p1);
+
         } else {
+
             defesa(p2);
-        }        
-    }, 5000);
-    $("#oneDef").prop("disabled", false);
-    $('#oneAtk').prop("disabled", false);
+
+        }
+
+        $("#oneDef").prop("disabled", false);
+        $('#oneAtk').prop("disabled", false);
+
+    }, 1000);
+    
 }
 
 //  Função para seleção de personagem
 function selected(hero) {
+
     return chooseHero.filter(element =>{
+
         return hero === element.name;
+
     })[0] 
+
 }
 
 //  Função para enviar os logs para a textarea
-function log(text) {
+function log(mensagem, player) {        
+
     let atual = $('#logText').val();
-    atual += text;
-    $('#logText').val(atual);
+    atual += mensagem;
+    (player === p1)? $('#logText').css('color' , 'blue') : $('#logText').css('color' , 'red');
+    $('#logText').val(atual);    
+    $('#logText').scrollTop($('#logText')[0].scrollHeight);    
+
 }
 
 //  Gerador de aleatório
 function geraRandom(min, max) {
+
     return Math.random() * (max - min) + min;
+
 }
 
 //  Inicio
-$('#inicio').click(function(){
-    $('#logText').val("")
-    $('#starter').hide();        
+$('#starter').click(function(){
+
+    $('#logText').val("");
+    $('#starter').hide();
+
     if (typeof selectCharacterAudio.loop == 'boolean'){
         selectCharacterAudio.loop = true;
     } else {
@@ -132,10 +165,12 @@ $('#inicio').click(function(){
         }, false);
     }
     selectCharacterAudio.play();
+
 })
 
 //  Seleção de Personagem : hover
 $(".fighter").hover(function(){
+
     if (!p1) {
 
         $(`#${this.getAttribute('id')}`).css("border","solid 2px blue");
@@ -147,14 +182,16 @@ $(".fighter").hover(function(){
 
         $(`#${this.getAttribute('id')}`).css("border","solid 2px red");
         $(`#${this.getAttribute('id')}`).css("color", "red")
-        $(`#${this.getAttribute('id')}`).text("P2");
+        $(`#${this.getAttribute('id')}`).text("CPU");
         hoverCharacter.play();
 
     }
     
 },function(){
+
     $(`#${this.getAttribute('id')}`).css("border", "solid 2px black");
     $(`#${this.getAttribute('id')}`).text("");
+
 });
 
 //  Seleção de Personagem : click
@@ -184,11 +221,13 @@ $(".fighter").click(function(){
 $("#fight-btn").click(function(){
     
     if (p1 && p2) {
+
         $('#seletor-painel').fadeOut("slow");
         selectCharacterAudio.pause();
         $('main').fadeIn(1000);
         $('main').css('display', 'flex');
         mostrarLutadores();
+
         if (typeof battleTheme.loop == 'boolean'){
             battleTheme.loop = true;
         } else {
@@ -202,8 +241,9 @@ $("#fight-btn").click(function(){
 
 })
 
-//  Função que preenche os dados dos lutadores no momento de batalha
+//  Função que preenche os dados dos lutadores durante a batalha
 function mostrarLutadores(){
+
     //  Player 1
     $('#img-one').attr("src", `./images/${p1.imagem}-large-right.png`);
     $('#oneSTR').text(`${p1.st}`);
@@ -211,48 +251,59 @@ function mostrarLutadores(){
     $('#oneINT').text(`${p1.int}`);
     let porcentagemOne = (p1.hp * 100) / p1.hpmax
     $('#oneVida').css('width', `${porcentagemOne * 2}px`);
+
     //  CPU
     $('#img-two').attr("src", `./images/${p2.imagem}-large-left.png`);
     $('#twoSTR').text(`${p2.st}`);
     $('#twoAGI').text(`${p2.agi}`);
     $('#twoINT').text(`${p2.int}`);
     let porcentagemTwo = (p2.hp * 100) / p2.hpmax
-    $('#twoVida').css('width', `${porcentagemTwo * 2}px`);    
+    $('#twoVida').css('width', `${porcentagemTwo * 2}px`); 
+
 }
 
 //  Botoes durante a luta
 $('#oneAtk').click(function(){
-    ataque(p1, p2);
-    $('#logText').scrollTop($('#logText')[0].scrollHeight);
+
     $("#oneDef").prop("disabled", true);
     $('#oneAtk').prop("disabled", true);
+    ataque(p1, p2);    
     enemyAction();
+
 })
 
 $('#oneDef').click(function(){
-    defesa(p1);
+
     $("#oneDef").prop("disabled", true);
     $('#oneAtk').prop("disabled", true);
+    defesa(p1);    
     enemyAction();
+
 })
 
-//  Função para Fim de Jogo
+//  Função para definição de Danger e Fim de Jogo
 function checaVidas(){
+
     if (p1.hp < 1) {
+
         battleTheme.pause();
         $('main').fadeOut("slow")
         $("#victory").fadeIn("slow");
         $('#victory').css("display","flex");
         $('#victoryText').text(`${p2.name} Wins`);
         end.play();
+
     }
+
     if (p2.hp < 1) {
+
         battleTheme.pause();
         $('main').fadeOut("slow");
         $("#victory").fadeIn("slow");
         $('#victory').css("display","flex");
         $('#victoryText').text(`${p1.name} Wins`);
         end.play();
-    }
-    return false
+
+    } 
+
 }
