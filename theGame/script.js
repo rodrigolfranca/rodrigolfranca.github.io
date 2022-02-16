@@ -1,16 +1,15 @@
 class Hero {
     constructor(name, type, imagem, st, agi, int, atkText) {
-    this.name = name          //Nome
-    this.type = type          //Tipo
-    this.imagem = imagem  //Universo. Ex.: Disney, Marvel, League of Legends
-    this.st = st		      //Força
-    this.agi = agi	          //Agilidade
-    this.int = int	          //Inteligência
-    this.hp = this.st * 10
-    this.hpmax = this.st * 10    //Pontos de Vida
-    this.mp = this.int * -1   //Mana (Pontos para execução de habilidades)
-    this.def = parseInt(this.agi * 0.2); //Defesa
-    this.atkPower = 5         //Ataque base
+    this.name = name                      //Nome
+    this.type = type                      //Tipo
+    this.imagem = imagem                  //Universo. Ex.: Disney, Marvel, League of Legends
+    this.st = st		                  //Força
+    this.agi = agi	                      //Agilidade
+    this.int = int	                      //Inteligência
+    this.hp = this.st * 10                //Pontos de Vida atual
+    this.hpmax = this.st * 10             //Pontos de Vida Máximo   
+    this.def = parseInt(this.agi * 0.2);  //Defesa
+    this.atkPower = 5                     //Ataque base
     this.atkText = atkText;      
     this.dmgUp()
     }        
@@ -38,6 +37,7 @@ class Hero {
     }
     }
 }
+
 //  Variáveis Globais
 let defStatus = 0
 let p1 = 0;
@@ -49,6 +49,7 @@ const twoSelect = new Audio("./audio/twoSelect.mp3");
 const battleTheme = new Audio("./audio/battleSound.mp3");
 const end = new Audio("./audio/end.mp3");
 
+//  Instancias da Classe
 chooseHero = [
     Chaves = new Hero("Chaves", 1, 'chaves', 14, 22, 14, 'Chaves deu uma sequencia de socos em '),
     Chiquinha = new Hero("Chiquinha", 3, 'chiquinha', 14, 16, 20, 'Chiquinha deu um pontapé em '),
@@ -59,20 +60,9 @@ chooseHero = [
     Professor = new Hero("Prof Girafales", 3, 'professor', 18, 10, 22, 'Professor Girafales deu uma lição de moral em '),
     Clotilde = new Hero("Dna Clotilde", 3, "clotilde", 8, 10, 28, 'Dona Clotilde enfeitiçou ')
 ]
-//  Função para seleção de personagem
-function selected(hero) {
-    return chooseHero.filter(element =>{
-        return hero === element.name;
-    })[0] 
-}
-//  Função para enviar os logs para a textarea
-function log(text) {
-    let atual = $('#logText').val();
-    atual += text;
-    $('#logText').val(atual);
-}
+
 //  Função para ataques normais
-function Ataque(atacante , defensor) {
+function ataque(atacante , defensor) {
     log(`${atacante.name} tentara atacar com um ataque normal \n`);
     let dado = parseInt(geraRandom(1,21));
     let def;
@@ -90,10 +80,45 @@ function Ataque(atacante , defensor) {
     checaVidas();
     return false
 }
+
+//  Função de Defesa
+function defesa(p) {
+    log( `${p.name} se prepara para receber um ataque, sua defesa dobra!\n` );
+}
+
+//  Função que sorteia as ações da CPU
+function enemyAction(){
+    setTimeout(() => {
+        let action = geraRandom(1, 10);
+        if (action > 4) {
+            ataque(p2 , p1);
+        } else {
+            defesa(p2);
+        }        
+    }, 5000);
+    $("#oneDef").prop("disabled", false);
+    $('#oneAtk').prop("disabled", false);
+}
+
+//  Função para seleção de personagem
+function selected(hero) {
+    return chooseHero.filter(element =>{
+        return hero === element.name;
+    })[0] 
+}
+
+//  Função para enviar os logs para a textarea
+function log(text) {
+    let atual = $('#logText').val();
+    atual += text;
+    $('#logText').val(atual);
+}
+
 //  Gerador de aleatório
 function geraRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
+
 //  Inicio
 $('#inicio').click(function(){
     $('#logText').val("")
@@ -108,6 +133,7 @@ $('#inicio').click(function(){
     }
     selectCharacterAudio.play();
 })
+
 //  Seleção de Personagem : hover
 $(".fighter").hover(function(){
     if (!p1) {
@@ -130,6 +156,7 @@ $(".fighter").hover(function(){
     $(`#${this.getAttribute('id')}`).css("border", "solid 2px black");
     $(`#${this.getAttribute('id')}`).text("");
 });
+
 //  Seleção de Personagem : click
 $(".fighter").click(function(){
     if (!p1) {
@@ -152,6 +179,7 @@ $(".fighter").click(function(){
         
     }
 });
+
 //  Inicio da Luta
 $("#fight-btn").click(function(){
     
@@ -174,8 +202,8 @@ $("#fight-btn").click(function(){
 
 })
 
+//  Função que preenche os dados dos lutadores no momento de batalha
 function mostrarLutadores(){
-
     //  Player 1
     $('#img-one').attr("src", `./images/${p1.imagem}-large-right.png`);
     $('#oneSTR').text(`${p1.st}`);
@@ -183,47 +211,29 @@ function mostrarLutadores(){
     $('#oneINT').text(`${p1.int}`);
     let porcentagemOne = (p1.hp * 100) / p1.hpmax
     $('#oneVida').css('width', `${porcentagemOne * 2}px`);
-
-    //  Player 2
+    //  CPU
     $('#img-two').attr("src", `./images/${p2.imagem}-large-left.png`);
     $('#twoSTR').text(`${p2.st}`);
     $('#twoAGI').text(`${p2.agi}`);
     $('#twoINT').text(`${p2.int}`);
     let porcentagemTwo = (p2.hp * 100) / p2.hpmax
-    $('#twoVida').css('width', `${porcentagemTwo * 2}px`);
-    
-    
+    $('#twoVida').css('width', `${porcentagemTwo * 2}px`);    
 }
+
 //  Botoes durante a luta
 $('#oneAtk').click(function(){
-    Ataque(p1, p2);
+    ataque(p1, p2);
     $('#logText').scrollTop($('#logText')[0].scrollHeight);
     $("#oneDef").prop("disabled", true);
     $('#oneAtk').prop("disabled", true);
-    $("#twoDef").prop("disabled", false);
-    $('#twoAtk').prop("disabled", false);
+    enemyAction();
 })
-$('#twoAtk').click(function(){  
-    Ataque(p2, p1);
-    $('#logText').scrollTop($('#logText')[0].scrollHeight);
-    $("#oneDef").prop("disabled", false);
-    $('#oneAtk').prop("disabled", false);
-    $("#twoDef").prop("disabled", true);
-    $('#twoAtk').prop("disabled", true);
-})
+
 $('#oneDef').click(function(){
-    defStatus = 1;
+    defesa(p1);
     $("#oneDef").prop("disabled", true);
     $('#oneAtk').prop("disabled", true);
-    $("#twoDef").prop("disabled", false);
-    $('#twoAtk').prop("disabled", false);
-})
-$('#twoDef').click(function(){
-    defStatus = 1;
-    $("#oneDef").prop("disabled", false);
-    $('#oneAtk').prop("disabled", false);
-    $("#twoDef").prop("disabled", true);
-    $('#twoAtk').prop("disabled", true);
+    enemyAction();
 })
 
 //  Função para Fim de Jogo

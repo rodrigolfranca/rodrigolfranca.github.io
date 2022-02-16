@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
+@font-face {
+    font-family: 'mortalkombat3';
+    src: url('./fonts/mortalkombat3.ttf');
+}
 * {
-    box-sizing: border-box;
-    font-family: 'Slabo 27px', serif;
+    box-sizing: border-box;    
 }
 body{    
     margin: 0;
     width: 100%;
     height: fit-content;
-    background-color: #1e1e1e;
+    background-color: #0f0f0f;
 }
 header {
     width: 300px;
@@ -15,7 +17,7 @@ header {
     position: fixed;
     top: 0px;
     right: calc(50% - 150px);    
-    background-color: #1e1e1e;
+    background-color: #0f0f0f;
     color: #e00202;
     text-align: center;    
 }
@@ -26,9 +28,9 @@ header h1{
 #starter, #victory {
     position: absolute;   
     width: 100%;
-    height: 600px;
+    height: 100%;
     top:0px;
-    background-color: #1e1e1e;
+    background-color: #0f0f0f;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,8 +53,8 @@ header h1{
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 10px;
-    border: 1px black solid;
-    box-shadow: 5px 5px 11px black;
+    border: 1px #0f0f0f solid;
+    box-shadow: 5px 5px 11px #0f0f0f;
     color: yellow;
 }
 #seletor-painel h3 {
@@ -73,7 +75,7 @@ header h1{
     height: 150px;
     width: 75px;
     background-color: #fff;
-    border:2px solid black;
+    border:2px solid #0f0f0f;
     font-size: 36px;
     font-weight: bolder;
 }
@@ -83,7 +85,7 @@ header h1{
 #fight-btn{
     color: blue;
 }
-#fight-btn:hover {
+#fight-btn:hover , #inicio:hover {
     cursor:pointer;
 }
 #chaves {
@@ -125,7 +127,7 @@ main {
     padding-top: 15px;
     border-radius: 10px;
     color:#fefefe;
-    box-shadow: 5px 5px 11px black;
+    box-shadow: 5px 5px 11px #0f0f0f;
 }
 #log{
     height: 500px;
