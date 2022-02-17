@@ -1,13 +1,13 @@
 class Hero {
-    constructor(name, type, imagem, st, agi, int, atkText) {
+    constructor(name, type, imagem, st, agi, int, atkText, special) {
     this.name = name                      //Nome
     this.type = type                      //Tipo
     this.imagem = imagem                  //Universo. Ex.: Disney, Marvel, League of Legends
     this.st = st		                  //Força
     this.agi = agi	                      //Agilidade
     this.int = int	                      //Inteligência
-    this.hp = this.st * 10                //Pontos de Vida atual
-    this.hpmax = this.st * 10             //Pontos de Vida Máximo   
+    this.hp = this.st * 8                 //Pontos de Vida atual
+    this.hpmax = this.hp                  //Pontos de Vida Máximo   
     this.def = parseInt(this.agi * 0.2);  //Defesa
     this.atkPower = 5                     //Ataque base
     this.atkText = atkText;               //Ataque speech
@@ -59,14 +59,14 @@ const defended = new Audio("./audio/defended.mp3");
 
 //  Instancias da Classe
 chooseHero = [
-    Chaves = new Hero("Chaves", 1, 'chaves', 14, 22, 14, 'Chaves deu uma sequencia de socos em '),
-    Chiquinha = new Hero("Chiquinha", 3, 'chiquinha', 14, 16, 20, 'Chiquinha deu um pontapé em '),
-    Quico = new Hero("Quico", 2, 'quico', 18, 14, 10, 'Quico disparou um socão em '),
-    Madruga = new Hero("Seu Madruga", 2, 'madruga', 20, 12, 14, 'Seu Madruga deu um croque em '),
-    Florinda = new Hero("Dona Florinda", 2, 'florinda', 20, 12, 16, 'Dona Florinda virou o tapão em '),
-    Barriga = new Hero("Seu Barriga", 2, 'barriga', 26, 10, 12, 'Seu barriga deu uma barrigada em '),
-    Professor = new Hero("Prof Girafales", 3, 'professor', 18, 10, 22, 'Professor Girafales deu uma lição de moral em '),
-    Clotilde = new Hero("Dna Clotilde", 3, "clotilde", 8, 10, 28, 'Dona Clotilde enfeitiçou ')
+    Chaves = new Hero("Chaves", 1, 'chaves', 14, 22, 14, 'Chaves deu uma sequencia de socos em ', "Chaves usa sua condição de pobre e faminto para distrair e então usa toda sua força para atacar seu oponente"),
+    Chiquinha = new Hero("Chiquinha", 3, 'chiquinha', 14, 16, 20, 'Chiquinha deu um pontapé em ', "Chiquinha engana seu oponente fazendo com que ele ataque a si mesmo"),
+    Quico = new Hero("Quico", 2, 'quico', 18, 14, 10, 'Quico disparou um socão em ', "Quico é rico e por isso tem tudo o que quer, inclusive o proprio exército, que atacou o inimigo"),
+    Madruga = new Hero("Seu Madruga", 2, 'madruga', 20, 12, 14, 'Seu Madruga deu um croque em ', "Seu Madruga veste as luvas de pugilista e ataca o oponente"),
+    Florinda = new Hero("Dona Florinda", 2, 'florinda', 20, 12, 16, 'Dona Florinda virou o tapão em ', "Dona Florinda usa seus dotes de mulher indefesa e destroi seu oponente em tapas"),
+    Barriga = new Hero("Seu Barriga", 2, 'barriga', 26, 10, 12, 'Seu barriga deu uma barrigada em ', "Seu Barriga cobra todos os alugueis atrasados de seu oponente, com juros."),
+    Professor = new Hero("Prof Girafales", 3, 'professor', 18, 10, 22, 'Professor Girafales deu uma lição de moral em ', "Professor Girafales usa todas as regras da aritmetica pra destruir seu oponente"),
+    Clotilde = new Hero("Dna Clotilde", 3, "clotilde", 8, 10, 28, 'Dona Clotilde enfeitiçou ', "Dona Clotilde invoca o proprio Satanás contra seu oponente")
 ]
 
 //  Função para ataques normais
@@ -107,13 +107,33 @@ function defesa(jogador) {
 
 }
 
+//  Função de ataque especial
+function special(atacante, defensor) {
+
+    let url = `./audio/${atacante.imagem}Special.mp3`
+    new Audio(url).play();
+    $('#logText').val("");
+    log(atacante.special, atacante);
+    defensor.hp -= atacante.atkPower * 3;
+    defStatus = 0;
+    cpuDanger = 0;
+    $('#dangerAtk').css('display', 'none');
+    mostrarLutadores();
+    checaVidas();
+
+}
+
 //  Função que sorteia as ações da CPU
 function enemyAction(){
 
     setTimeout(() => {
 
         let action = geraRandom(1, 10);
-        if (action > 4 || defStatus === 1) {
+        if (action > 2 && cpuDanger === 1) {
+
+            special(p2, p1);
+
+        } else if (action > 4 || defStatus === 1) {
 
             ataque(p2 , p1);
 
@@ -283,7 +303,7 @@ $('#oneAtk').click(function(){
     $("#oneDef").prop("disabled", true);
     $('#oneAtk').prop("disabled", true);
     ataque(p1, p2);    
-    enemyAction();
+    if (p1.hp>0 && p2.hp>0) enemyAction();
 
 })
 
@@ -291,21 +311,30 @@ $('#oneDef').click(function(){
 
     $("#oneDef").prop("disabled", true);
     $('#oneAtk').prop("disabled", true);
-    defesa(p1);    
-    enemyAction();
+    defesa(p1);
+    if (p1.hp>0 && p2.hp>0) enemyAction();
+
+})
+
+$("#dangerAtk").click(function(){
+
+    $("#oneDef").prop("disabled", true);
+    $('#oneAtk').prop("disabled", true);
+    special(p1, p2);
+    if (p1.hp>0 && p2.hp>0) enemyAction();
 
 })
 
 //  Função para definição de Danger e Fim de Jogo
 function checaVidas(){
 
-    if ( ((p1.hp * 100)/ p1.hpmax) <= 15 && playerDanger === 0 && p1.hp >= 1 ) {
+    if ( ((p1.hp * 100)/ p1.hpmax) <= 50 && playerDanger === 0 && p1.hp >= 1 ) {
         danger.play();
         playerDanger = 1;
         $('#dangerAtk').css('display', 'block');
     }
 
-    if ( ((p2.hp * 100)/ p2.hpmax) < 15 && cpuDanger === 0 && p2.hp >= 1 ) {
+    if ( ((p2.hp * 100)/ p2.hpmax) <= 50 && cpuDanger === 0 && p2.hp >= 1 ) {
         danger.play();
         cpuDanger = 1;
     }
@@ -318,6 +347,11 @@ function checaVidas(){
         $('#victory').css("display","flex");
         $('#victoryText').text(`${p2.name} Wins`);
         end.play();
+        setTimeout(() => {
+            let url = `./audio/${p2.imagem}Victory.mp3`
+            new Audio(url).play();            
+        }, 1500);
+
 
     }
 
@@ -329,6 +363,10 @@ function checaVidas(){
         $('#victory').css("display","flex");
         $('#victoryText').text(`${p1.name} Wins`);
         end.play();
+        setTimeout(() => {
+            let url = `./audio/${p1.imagem}Victory.mp3`
+            new Audio(url).play();            
+        }, 1500);
 
     } 
 
