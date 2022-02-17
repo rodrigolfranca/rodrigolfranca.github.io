@@ -85,6 +85,7 @@ function ataque(atacante , defensor) {
         log(`${atacante.atkText}${defensor.name}\n` , atacante);
         defensor.hp -= atacante.atkPower;
         attacked.play();
+        (atacante === p1)? $('#playerTwo').effect('shake') : $('#playerOne').effect('shake');
 
     } else {
 
@@ -115,6 +116,7 @@ function special(atacante, defensor) {
     $('#logText').val("");
     log(atacante.special, atacante);
     defensor.hp -= atacante.atkPower * 3;
+    (atacante === p1)? $('#playerTwo').effect('shake') : $('#playerOne').effect('shake');
     defStatus = 0;
     cpuDanger = 0;
     $('#dangerAtk').css('display', 'none');
