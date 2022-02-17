@@ -33,7 +33,7 @@
         <main>
             <div id="playerOne">
                 <img id='img-one' src=""/>
-                <h3>Status</h3>
+                <h3 id="oneName"></h3>
                 <p>Força: <span id='oneSTR'></span></p>
                 <p>Agilidade: <span id='oneAGI'></span></p>
                 <p>Inteligencia: <span id='oneINT'></span></p>
@@ -41,8 +41,11 @@
                 <div id="oneVidaMax">
                     <div id="oneVida"></div>
                 </div>
-                <input type="button" value="Ataque" id="oneAtk" />
-                <input type="button" value="Defende" id="oneDef" />
+                <div id="botoes">
+                    <input type="button" class="act-btn" value="Ataque" id="oneAtk" />
+                    <input type="button" class="act-btn" value="Defende" id="oneDef" />
+                    <input type="button" class="act-btn" value="Especial" id="dangerAtk" />
+                </div>
 
             </div>
             <div id="log">
@@ -51,7 +54,7 @@
             </div>
             <div id="playerTwo">
                 <img id='img-two' src=""/>
-                <h3>Status</h3>
+                <h3 id="twoName"></h3>
                 <p>Força: <span id='twoSTR'></span></p>
                 <p>Agilidade: <span id='twoAGI'></span></p>
                 <p>Inteligencia: <span id='twoINT'></span></p>

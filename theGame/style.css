@@ -181,4 +181,19 @@ p {
 }
 .scroll::-webkit-scrollbar {
     display: none;
-  }
+}
+#botoes {
+    margin: 10px auto;
+    width: 150px;
+    height: 72px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.act-btn {
+    width: 75px;
+    height: 35px;
+}
+#dangerAtk {
+    width: 150px;
+    display:none;
+}

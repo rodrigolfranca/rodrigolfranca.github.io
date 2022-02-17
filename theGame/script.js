@@ -10,7 +10,8 @@ class Hero {
     this.hpmax = this.st * 10             //Pontos de Vida Máximo   
     this.def = parseInt(this.agi * 0.2);  //Defesa
     this.atkPower = 5                     //Ataque base
-    this.atkText = atkText;      
+    this.atkText = atkText;               //Ataque speech
+    this.special = special;               //Special Attack Speech
     this.dmgUp()
     }        
     /*
@@ -40,6 +41,8 @@ class Hero {
 
 //  Variáveis Globais
 let defStatus = 0
+let playerDanger = 0;
+let cpuDanger = 0;
 let p1 = 0;
 let p2 = 0;
 const selectCharacterAudio = new Audio("./audio/selectCharacter.mp3");
@@ -48,6 +51,11 @@ const oneSelect = new Audio("./audio/oneSelect.mp3");
 const twoSelect = new Audio("./audio/twoSelect.mp3");
 const battleTheme = new Audio("./audio/battleSound.mp3");
 const end = new Audio("./audio/end.mp3");
+const erro = new Audio("./audio/erro.mp3");
+const danger = new Audio("./audio/danger.mp3");
+const attacked = new Audio("./audio/attacked.mp3");
+const defended = new Audio("./audio/defended.mp3");
+
 
 //  Instancias da Classe
 chooseHero = [
@@ -70,20 +78,21 @@ function ataque(atacante , defensor) {
     let def;
     (defStatus)? def = defensor.def * 2 : def = defensor.def;
     defStatus = 0;
+    log(`${dado} => ${def} \n` , atacante);
 
     if (dado > def) {
 
-        log(`${dado} => ${def} \n` , atacante);
         log(`${atacante.atkText}${defensor.name}\n` , atacante);
-        defensor.hp -= atacante.atkPower;   
+        defensor.hp -= atacante.atkPower;
+        attacked.play();
 
     } else {
 
-        log(`${dado} => ${def}\n` , atacante);
         log(`Errou!\n` , atacante);
+        defended.play();
 
     }
-    
+
     mostrarLutadores();
     checaVidas();
     
@@ -104,7 +113,7 @@ function enemyAction(){
     setTimeout(() => {
 
         let action = geraRandom(1, 10);
-        if (action > 4) {
+        if (action > 4 || defStatus === 1) {
 
             ataque(p2 , p1);
 
@@ -117,7 +126,7 @@ function enemyAction(){
         $("#oneDef").prop("disabled", false);
         $('#oneAtk').prop("disabled", false);
 
-    }, 1000);
+    }, 1500);
     
 }
 
@@ -207,12 +216,16 @@ $(".fighter").click(function(){
 
     } else if (!p2) {
 
-        p2 = selected(this.getAttribute('value'))
-        $(`#${this.getAttribute('id')}`).css("border", "solid 2px black")
-        $(`#${this.getAttribute('id')}`).css("filter", "grayscale(100%)")
-        twoSelect.play();
-        $("#fight-btn").text("CLICK HERE TO BATTLE");
-        $("#fight-btn").css("color", "yellow");
+        if (selected(this.getAttribute('value')) != p1) {
+            p2 = selected(this.getAttribute('value'))
+            $(`#${this.getAttribute('id')}`).css("border", "solid 2px black")
+            $(`#${this.getAttribute('id')}`).css("filter", "grayscale(100%)")
+            twoSelect.play();
+            $("#fight-btn").text("CLICK HERE TO BATTLE");
+            $("#fight-btn").css("color", "yellow");
+        } else {
+            erro.play();
+        }
         
     }
 });
@@ -246,6 +259,7 @@ function mostrarLutadores(){
 
     //  Player 1
     $('#img-one').attr("src", `./images/${p1.imagem}-large-right.png`);
+    $('#oneName').text(`${p1.name}`);
     $('#oneSTR').text(`${p1.st}`);
     $('#oneAGI').text(`${p1.agi}`);
     $('#oneINT').text(`${p1.int}`);
@@ -254,6 +268,7 @@ function mostrarLutadores(){
 
     //  CPU
     $('#img-two').attr("src", `./images/${p2.imagem}-large-left.png`);
+    $('#twoName').text(`${p2.name}`);
     $('#twoSTR').text(`${p2.st}`);
     $('#twoAGI').text(`${p2.agi}`);
     $('#twoINT').text(`${p2.int}`);
@@ -283,6 +298,17 @@ $('#oneDef').click(function(){
 
 //  Função para definição de Danger e Fim de Jogo
 function checaVidas(){
+
+    if ( ((p1.hp * 100)/ p1.hpmax) <= 15 && playerDanger === 0 && p1.hp >= 1 ) {
+        danger.play();
+        playerDanger = 1;
+        $('#dangerAtk').css('display', 'block');
+    }
+
+    if ( ((p2.hp * 100)/ p2.hpmax) < 15 && cpuDanger === 0 && p2.hp >= 1 ) {
+        danger.play();
+        cpuDanger = 1;
+    }
 
     if (p1.hp < 1) {
 
