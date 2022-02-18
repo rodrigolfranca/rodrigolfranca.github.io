@@ -117,8 +117,7 @@ function special(atacante, defensor) {
     log(atacante.special, atacante);
     defensor.hp -= atacante.atkPower * 3;
     (atacante === p1)? $('#playerTwo').effect('shake') : $('#playerOne').effect('shake');
-    defStatus = 0;
-    cpuDanger = 0;
+    defStatus = 0;    
     $('#dangerAtk').css('display', 'none');
     mostrarLutadores();
     checaVidas();
