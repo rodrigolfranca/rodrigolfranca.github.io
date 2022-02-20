@@ -142,8 +142,7 @@ function special(atacante, defensor) {
     defStatus = 0;
 
     $('#dangerAtk').css('display', 'none');
-    specialAudio.onended = () => {
-        new Audio("./audio/specialAudio.mp3").play();
+    specialAudio.onended = () => {        
         mostrarLutadores();
         checaVidas();
         if (atacante === p2) {
@@ -180,6 +179,17 @@ function enemyAction(){
     }, 1500);
     
 }
+
+//  onload
+$(document).ready(function(){    
+    setInterval(() => {
+        if ($('#inicioMsg').css('display') === 'block') {
+            $('#inicioMsg').css('display', 'none');
+        } else {
+            $('#inicioMsg').css('display', 'block');
+        }
+    }, 450);
+})
 
 //  Função para seleção de personagem
 function selected(hero) {
