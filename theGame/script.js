@@ -296,7 +296,7 @@ $("#fight-btn").click(function(){
     
     if (p1 && p2) {
 
-        $('#seletor-painel').fadeOut("slow");
+        $('#seletor-painel').hide();
         selectCharacterAudio.pause();
         $('main').fadeIn(1000);
         $('main').css('display', 'flex');
