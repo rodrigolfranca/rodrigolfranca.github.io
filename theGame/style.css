@@ -206,9 +206,44 @@ p {
 }
 .act-btn {
     width: 75px;
-    height: 35px;
+    height: 35px;    
 }
+#oneAtk {
+    background-color: #860505;
+    color: black;
+    border-radius: 5px;
+    border: black 1px solid;
+    font-weight: bold;
+}
+#oneAtk:hover {
+    background-color: black;
+    color: #860505;
+    font-weight: bold;
+}
+#oneDef {
+    background-color: #448606;
+    color: black;
+    border-radius: 5px;
+    border: black 1px solid;
+    font-weight: bold;
+}
+#oneDef:hover {
+    background-color: black;
+    color:#448606;
+    font-weight: bold;
+}
+
 #dangerAtk {
     width: 150px;
     display:none;
+    color: black;
+    border-radius: 5px;
+    border: black 1px solid;
+    font-weight: bold;
+    background-color: #270585;
+}
+#dangerAtk:hover {
+    background-color: black;
+    color:#270585;
+    font-weight: bold;
 }
