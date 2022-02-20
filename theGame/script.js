@@ -94,6 +94,11 @@ function ataque(atacante , defensor) {
 
     }
 
+    if (atacante === p2) {
+        $("#oneDef").prop("disabled", false);
+        $('#oneAtk').prop("disabled", false);
+    }
+
     mostrarLutadores();
     checaVidas();
     
@@ -105,6 +110,10 @@ function defesa(jogador) {
     $('#logText').val("");
     defStatus = 1;
     log( `${jogador.name} se prepara para receber um ataque, sua defesa dobra!\n` , jogador );
+    if (jogador === p2) {
+        $("#oneDef").prop("disabled", false);
+        $('#oneAtk').prop("disabled", false);
+    }
 
 }
 
@@ -112,15 +121,39 @@ function defesa(jogador) {
 function special(atacante, defensor) {
 
     let url = `./audio/${atacante.imagem}Special.mp3`
-    new Audio(url).play();
+    let specialAudio = new Audio(url);
+    specialAudio.play();
+
     $('#logText').val("");
     log(atacante.special, atacante);
+
+    if (atacante === p1) {
+
+        $('#playerTwo').effect('shake');
+
+    } else {
+
+        $('#playerOne').effect('shake')
+        cpuDanger = 2;
+
+    }
+
     defensor.hp -= atacante.atkPower * 3;
-    (atacante === p1)? $('#playerTwo').effect('shake') : $('#playerOne').effect('shake');
-    defStatus = 0;    
+    defStatus = 0;
+
     $('#dangerAtk').css('display', 'none');
-    mostrarLutadores();
-    checaVidas();
+    specialAudio.onended = () => {
+        new Audio("./audio/specialAudio.mp3").play();
+        mostrarLutadores();
+        checaVidas();
+        if (atacante === p2) {
+            $("#oneDef").prop("disabled", false);
+            $('#oneAtk').prop("disabled", false);
+        } else {
+            if (p1.hp>0 && p2.hp>0) enemyAction();
+        }
+    }
+
 
 }
 
@@ -130,7 +163,7 @@ function enemyAction(){
     setTimeout(() => {
 
         let action = geraRandom(1, 10);
-        if (action > 2 && cpuDanger === 1) {
+        if (cpuDanger === 1) { 
 
             special(p2, p1);
 
@@ -143,9 +176,6 @@ function enemyAction(){
             defesa(p2);
 
         }
-
-        $("#oneDef").prop("disabled", false);
-        $('#oneAtk').prop("disabled", false);
 
     }, 1500);
     
@@ -321,8 +351,7 @@ $("#dangerAtk").click(function(){
 
     $("#oneDef").prop("disabled", true);
     $('#oneAtk').prop("disabled", true);
-    special(p1, p2);
-    if (p1.hp>0 && p2.hp>0) enemyAction();
+    special(p1, p2);    
 
 })
 
@@ -347,11 +376,11 @@ function checaVidas(){
         $("#victory").fadeIn("slow");
         $('#victory').css("display","flex");
         $('#victoryText').text(`${p2.name} Wins`);
-        end.play();
-        setTimeout(() => {
+        end.play();        
+        end.onended = () => {
             let url = `./audio/${p2.imagem}Victory.mp3`
             new Audio(url).play();            
-        }, 1500);
+        }
 
 
     }
@@ -364,10 +393,10 @@ function checaVidas(){
         $('#victory').css("display","flex");
         $('#victoryText').text(`${p1.name} Wins`);
         end.play();
-        setTimeout(() => {
+        end.onended = () => {
             let url = `./audio/${p1.imagem}Victory.mp3`
             new Audio(url).play();            
-        }, 1500);
+        }
 
     } 
 
