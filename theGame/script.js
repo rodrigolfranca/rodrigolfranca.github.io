@@ -137,6 +137,7 @@ function special(atacante, defensor) {
     specialAudio.onended = () => {        
         mostrarLutadores();
         checaVidas();
+        attacked.play();
         if (atacante === p2) {
             $('#playerOne').effect('shake')
             cpuDanger = 2;
