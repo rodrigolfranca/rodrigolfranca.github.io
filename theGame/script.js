@@ -84,13 +84,17 @@ function ataque(atacante , defensor) {
 
         log(`${atacante.atkText}${defensor.name}\n` , atacante);
         defensor.hp -= atacante.atkPower;
+        attacked.pause();
+        attacked.currentTime = 0;
         attacked.play();
         (atacante === p1)? $('#playerTwo').effect('shake') : $('#playerOne').effect('shake');
 
     } else {
 
         log(`Errou!\n` , atacante);
-        defended.play();
+        defended.pause();
+        defended.currentTime = 0;
+        defended.play()
 
     }
 
@@ -384,5 +388,6 @@ function checaVidas(){
             let url = `./audio/${p1.imagem}Victory.mp3`
             new Audio(url).play();           
         }
+
     }
 }
