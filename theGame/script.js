@@ -2,7 +2,7 @@ class Hero {
     constructor(name, type, imagem, st, agi, int, atkText, special) {
     this.name = name                      //Nome
     this.type = type                      //Tipo
-    this.imagem = imagem                  //Universo. Ex.: Disney, Marvel, League of Legends
+    this.imagem = imagem                  //identificador
     this.st = st		                  //Força
     this.agi = agi	                      //Agilidade
     this.int = int	                      //Inteligência
