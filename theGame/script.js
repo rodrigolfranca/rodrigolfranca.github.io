@@ -126,18 +126,6 @@ function special(atacante, defensor) {
 
     $('#logText').val("");
     log(atacante.special, atacante);
-
-    if (atacante === p1) {
-
-        $('#playerTwo').effect('shake');
-
-    } else {
-
-        $('#playerOne').effect('shake')
-        cpuDanger = 2;
-
-    }
-
     defensor.hp -= atacante.atkPower * 3;
     defStatus = 0;
 
@@ -146,9 +134,12 @@ function special(atacante, defensor) {
         mostrarLutadores();
         checaVidas();
         if (atacante === p2) {
+            $('#playerOne').effect('shake')
+            cpuDanger = 2;
             $("#oneDef").prop("disabled", false);
             $('#oneAtk').prop("disabled", false);
         } else {
+            $('#playerTwo').effect('shake');
             if (p1.hp>0 && p2.hp>0) enemyAction();
         }
     }
@@ -224,16 +215,9 @@ function geraRandom(min, max) {
 $('#starter').click(function(){
 
     $('#logText').val("");
-    $('#starter').hide();
+    $('#starter').hide();    
 
-    if (typeof selectCharacterAudio.loop == 'boolean'){
-        selectCharacterAudio.loop = true;
-    } else {
-        selectCharacterAudio.addEventListener('ended', function() {
-            this.currentTime = 0;
-            this.play();
-        }, false);
-    }
+    selectCharacterAudio.loop = true;
     selectCharacterAudio.play();
 
 })
@@ -302,14 +286,7 @@ $("#fight-btn").click(function(){
         $('main').css('display', 'flex');
         mostrarLutadores();
 
-        if (typeof battleTheme.loop == 'boolean'){
-            battleTheme.loop = true;
-        } else {
-            battleTheme.addEventListener('ended', function() {
-                this.currentTime = 0;
-                this.play();
-            }, false);
-        }
+        battleTheme.loop = true;
         battleTheme.play();    
     }
 
@@ -405,9 +382,7 @@ function checaVidas(){
         end.play();
         end.onended = () => {
             let url = `./audio/${p1.imagem}Victory.mp3`
-            new Audio(url).play();            
+            new Audio(url).play();           
         }
-
-    } 
-
+    }
 }
