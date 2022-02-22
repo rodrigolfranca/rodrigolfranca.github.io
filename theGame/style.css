@@ -247,3 +247,18 @@ p {
     color:#270585;
     font-weight: bold;
 }
+
+#alterEgo-btn {
+    width: 150px;
+    display:none;
+    color: black;
+    border-radius: 5px;
+    border: black 1px solid;
+    font-weight: bold;
+    background-color: #270585;
+}
+#alterEgo-btn:hover {
+    background-color: black;
+    color:#270585;
+    font-weight: bold;
+}
