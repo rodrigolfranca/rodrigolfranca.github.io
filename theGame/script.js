@@ -66,15 +66,7 @@ chooseHero = [
     Florinda = new Hero("Dona Florinda", 2, 'florinda', 20, 12, 16, 'Dona Florinda virou o tapão em ', "Dona Florinda usa seus dotes de mulher indefesa e destroi seu oponente em tapas"),
     Barriga = new Hero("Seu Barriga", 2, 'barriga', 26, 10, 12, 'Seu barriga deu uma barrigada em ', "Seu Barriga cobra todos os alugueis atrasados de seu oponente, com juros."),
     Professor = new Hero("Prof Girafales", 3, 'professor', 18, 10, 22, 'Professor Girafales deu uma lição de moral em ', "Professor Girafales usa todas as regras da aritmetica pra destruir seu oponente"),
-    Clotilde = new Hero("Dna Clotilde", 3, "clotilde", 8, 10, 28, 'Dona Clotilde enfeitiçou ', "Dona Clotilde invoca o proprio Satanás contra seu oponente"),
-    Chapolim = new Hero("Chapolim Colorado", 1, 'chapolim', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
-    Alma = new Hero("Alma Negra", 1, 'alma', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
-    Chapolin = new Hero("Chapolim Colorado", 1, 'chapolim', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
-    Chapolin = new Hero("Chapolim Colorado", 1, 'chapolim', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
-    Chapolin = new Hero("Chapolim Colorado", 1, 'chapolim', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
-    Chapolin = new Hero("Chapolim Colorado", 1, 'chapolim', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
-    Chapolin = new Hero("Chapolim Colorado", 1, 'chapolim', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
-    Chapolin = new Hero("Chapolim Colorado", 1, 'chapolim', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", "")
+    Clotilde = new Hero("Dna Clotilde", 3, "clotilde", 8, 10, 28, 'Dona Clotilde enfeitiçou ', "Dona Clotilde invoca o proprio Satanás contra seu oponente")    
 ]
 
 //  Função para ataques normais
@@ -158,11 +150,6 @@ function special(atacante, defensor) {
     }
 
 
-}
-
-//  Função de troca de personagem (alter ego)
-function alterEgo(jogador) {
-    console.log('teste')
 }
 
 //  Função que sorteia as ações da CPU
@@ -377,23 +364,7 @@ function checaVidas(){
         cpuDanger = 1;
 
     }
-
-    //  Alter Ego enabler
-    if ( ((p1.hp * 100)/ p1.hpmax) <= 10 && playerAlter === 0 && p1.hp >= 1) {
-
-        danger.play();
-        playerAlter = 1;
-        $('#alterEgo-btn').css('display', 'block');
-
-    }
-    if ( ((p2.hp * 100)/ p2.hpmax) <= 10 && cpuAlter === 0 && p2.hp >= 1 ) {
-
-        danger.play();
-        cpuAlter = 1;
-
-    }
-
-
+    
     //  End game
     if (p1.hp < 1) {
 
