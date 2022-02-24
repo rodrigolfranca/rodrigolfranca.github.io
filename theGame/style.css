@@ -10,7 +10,7 @@ body{
     margin: 0;
     width: 100%;
     height: fit-content;
-    background-color: #0A0A0A;
+    background-image: url("./images/smokescreen.png");
 }
 #inicioLogo {
     background-image: url("./images/inicioLogo.png");
@@ -134,7 +134,7 @@ main {
     background-image: url("./images/vila.png");
 }
 #playerOne, #playerTwo {
-    height: 500px;
+    height: 520px;
     width: 300px;
     text-align: center;
     padding-top: 15px;
@@ -245,5 +245,39 @@ p {
 #dangerAtk:hover {
     background-color: black;
     color:#270585;
+    font-weight: bold;
+}
+#victoryText {
+    margin: 0
+}
+
+#victory-container {
+    height: 220px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#reset-btn {
+    margin: 1em auto;
+    height:50px;
+    width:50px;
+}
+#reset-btn:hover {
+    cursor:pointer;
+}
+#alterEgo-btn {
+    width: 150px;
+    display:none;
+    color: black;
+    border-radius: 5px;
+    border: black 1px solid;
+    font-weight: bold;
+    background-color: #e2d737;
+}
+#alterEgo-btn:hover {
+    background-color: black;
+    color:#e2d737;
     font-weight: bold;
 }
