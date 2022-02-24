@@ -2,7 +2,6 @@
     font-family: 'mortalkombat3';
     src: url('./fonts/mortalkombat3.ttf');
 }
-@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
 * {
     box-sizing: border-box;    
 }
