@@ -37,7 +37,7 @@ body{
 #starter, #victory {
     position: absolute;   
     width: 100%;
-    height: 100%;
+    height: fit-content;
     top:0px;
     background-color: #0A0A0A;
     display: flex;
@@ -45,6 +45,9 @@ body{
     justify-content: center;
     justify-items: center;
     align-content: center;
+}
+#victory {
+    height: 100%;
 }
 #inicio, #victoryText {
     font-size: 72px;
@@ -285,6 +288,8 @@ p {
     color:#e2d737;
     font-weight: bold;
 }
+
+/* Checar esse Erro */
 .act-btn:disabled {
     
     background-color: grey;

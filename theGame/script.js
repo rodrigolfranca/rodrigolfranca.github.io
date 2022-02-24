@@ -2,7 +2,7 @@ class Hero {
     constructor(name, type, reference, str, agi, int, atkText, special) {
     this.name = name                      //Nome
     this.type = type                      //Tipo
-    this.reference = reference            //Referencia para audio e imagem
+    this.reference = reference            //Referencia para audio, imagem e seleção de personagem
     this.str = str		                  //Força
     this.agi = agi	                      //Agilidade
     this.int = int	                      //Inteligência
@@ -29,7 +29,7 @@ class Hero {
         break;
 
         case 2:
-        this.atkPower += this.str /2
+        this.atkPower += this.str / 2
         break;
 
         case 3:
@@ -166,7 +166,7 @@ function alterEgo(player) {
     if (player === p1) {
 
         //  Player 1
-        $('#playerOne').hide('explode');
+        $('#playerOne').hide('explode');        
         p1.hp = p1.hpmax;
         p1 = selectAlter(p1);
         p1 = selected(p1);
@@ -186,7 +186,7 @@ function alterEgo(player) {
                 let calc = geraRandom(1, 11);
                 console.log(calc);  
                 (calc >= 3)? alterEgo(p2) : enemyAction();
-            } else {
+            } else {                
                 enemyAction();
             }            
         }
