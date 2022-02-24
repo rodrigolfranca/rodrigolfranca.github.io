@@ -180,7 +180,6 @@ function alterEgo(player) {
         comes.onended = function() {
             if (cpuAlter !== 2) {
                 let calc = geraRandom(1, 11);
-                console.log(calc);  
                 (calc >= 3)? alterEgo(p2) : enemyAction();
             } else {
                 enemyAction();
@@ -206,7 +205,6 @@ function alterEgo(player) {
         comes.onended = function() {
             if (playerAlter !== 1) {
                 let calc = geraRandom(1, 11);
-                console.log(calc);
                 (calc >= 3)? alterEgo(p1) : toggleButtons();
             } else {
                 toggleButtons();
