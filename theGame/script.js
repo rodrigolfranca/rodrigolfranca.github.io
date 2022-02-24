@@ -166,7 +166,9 @@ function alterEgo(player) {
     if (player === p1) {
 
         //  Player 1
-        $('#playerOne').hide('explode');        
+        $('#playerOne').hide('explode');
+        $('#logText').val("");
+        log('!Alter Ego!', player);
         p1.hp = p1.hpmax;
         p1 = selectAlter(p1);
         p1 = selected(p1);
@@ -186,7 +188,8 @@ function alterEgo(player) {
                 let calc = geraRandom(1, 11);
                 console.log(calc);  
                 (calc >= 3)? alterEgo(p2) : enemyAction();
-            } else {                
+            } else {
+                log("Alter Ego resposta falhou!", p2);
                 enemyAction();
             }            
         }
@@ -197,6 +200,8 @@ function alterEgo(player) {
 
         //  CPU
         $('#playerTwo').effect('explode');
+        $('#logText').val("");
+        log('!Alter Ego!', player);
         p2.hp = p2.hpmax;
         p2 = selectAlter(p2);
         p2 = selected(p2);
@@ -215,6 +220,7 @@ function alterEgo(player) {
                 console.log(calc);
                 (calc >= 3)? alterEgo(p1) : toggleButtons();
             } else {
+                log("Alter Ego resposta falhou!", p1);
                 toggleButtons();
             }
         }
