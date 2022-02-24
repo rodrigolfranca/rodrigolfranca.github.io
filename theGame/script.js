@@ -70,14 +70,14 @@ chooseHero = [
     Barriga = new Hero("Seu Barriga", 2, 'barriga', 26, 10, 12, 'Seu barriga deu uma barrigada em ', "Seu Barriga cobra todos os alugueis atrasados de seu oponente, com juros."),
     Professor = new Hero("Prof Girafales", 3, 'professor', 18, 10, 22, 'Professor Girafales deu uma lição de moral em ', "Professor Girafales usa todas as regras da aritmetica pra destruir seu oponente"),
     Clotilde = new Hero("Dona Clotilde", 3, "clotilde", 8, 10, 28, 'Dona Clotilde da um pirulito envenenado para ', "Dona Clotilde invoca o proprio Satanás contra seu oponente"),
-    Chapolim = new Hero("Chapolim Colorado", 1, 'chapolim', 30, 20, 15, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
-    Alma = new Hero("Alma Negra", 1, 'alma', 30, 20, 15, "Alma Negra puxa seu sabre e golpeia ", "1"),
-    Quase = new Hero("Quase Nada", 1, 'quase', 25, 25, 20, "Quase Nada mira e atira em ", "1"),
-    Baratuxa = new Hero("Bruxa Baratuxa", 1, 'baratuxa', 30, 20, 15, "Bruxa Baratuxa lança feitiço em ", "1"),
-    Rosa = new Hero("Rosa Rumorosa", 1, 'rosa', 30, 20, 15, "Rosa, a Rumorosa empresta a arma de seu pai e atira em ", "1"),
-    Bruxa = new Hero("Bruxa do 71", 1, 'bruxa', 30, 20, 15, "A Bruxa do 71 lança um feitiço em ", "1"),
-    Poucas = new Hero("Poucas Trancas", 1, 'poucas', 30, 20, 15, "Poucas Trancas atira em ", ""),
-    Almôndega = new Hero("Almôndega", 1, 'almondega', 30, 20, 15, "Utilizando seu disfarce, Almondega se aproxima e golpeia ", "")
+    Chapolim = new Hero("Chapolim Colorado", 1, 'chapolim', 25, 25, 20, "Chapolim deu um golpe com sua Marreta Bionica em ", ""),
+    Alma = new Hero("Alma Negra", 2, 'alma', 30, 20, 15, "Alma Negra puxa seu sabre e golpeia ", ""),
+    Quase = new Hero("Quase Nada", 1, 'quase', 25, 25, 20, "Quase Nada mira e atira em ", ""),
+    Baratuxa = new Hero("Bruxa Baratuxa", 3, 'baratuxa', 20, 15, 30, "Bruxa Baratuxa lança feitiço em ", ""),
+    Rosa = new Hero("Rosa Rumorosa", 1, 'rosa', 20, 30, 15, "Rosa, a Rumorosa empresta a arma de seu pai e atira em ", ""),
+    Bruxa = new Hero("Bruxa do 71", 3, 'bruxa', 15, 20, 30, "A Bruxa do 71 lança um feitiço em ", ""),
+    Poucas = new Hero("Poucas Trancas", 1, 'poucas', 20, 30, 15, "Poucas Trancas atira em ", ""),
+    Almôndega = new Hero("Almôndega", 1, 'almondega', 15, 35, 15, "Utilizando seu disfarce, Almondega se aproxima e golpeia ", "")
 ]
 
 //  Função para ataques normais
@@ -135,6 +135,7 @@ function special(atacante, defensor) {
 
     let url = `./audio/${atacante.reference}Special.mp3`
     let specialAudio = new Audio(url);
+    battleTheme.volume = 0.5;
     specialAudio.play();
 
     $('#logText').val("");
@@ -143,7 +144,8 @@ function special(atacante, defensor) {
     defStatus = 0;
 
     $('#dangerAtk').css('display', 'none');
-    specialAudio.onended = () => {        
+    specialAudio.onended = () => {
+        battleTheme.volume = 1;
         mostrarLutadores();
         checaVidas();
         attacked.play();
@@ -176,14 +178,17 @@ function alterEgo(player) {
         mostrarLutadores();
         $('#playerOne').fadeIn('slow');
         let comes = new Audio(`./audio/${p1.reference}Comes.mp3`);
+        battleTheme.volume = 0.5;
         comes.play();
         comes.onended = function() {
+            battleTheme.volume = 1;
             if (cpuAlter !== 2) {
                 let calc = geraRandom(1, 11);
+                console.log(calc);  
                 (calc >= 3)? alterEgo(p2) : enemyAction();
             } else {
                 enemyAction();
-            }
+            }            
         }
         
         
@@ -201,10 +206,13 @@ function alterEgo(player) {
         mostrarLutadores();
         $('#playerTwo').fadeIn('slow');
         let comes = new Audio(`./audio/${p2.reference}Comes.mp3`);
+        battleTheme.volume = 0.5;
         comes.play();
         comes.onended = function() {
+            battleTheme.volume = 1;
             if (playerAlter !== 1) {
                 let calc = geraRandom(1, 11);
+                console.log(calc);
                 (calc >= 3)? alterEgo(p1) : toggleButtons();
             } else {
                 toggleButtons();

@@ -2,6 +2,7 @@
     font-family: 'mortalkombat3';
     src: url('./fonts/mortalkombat3.ttf');
 }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 * {
     box-sizing: border-box;    
 }
@@ -10,8 +11,6 @@ body{
     width: 100%;
     height: fit-content;
     background-image: url("./images/smokescreen.png");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 #inicioLogo {
     background-image: url("./images/inicioLogo.png");
@@ -29,9 +28,10 @@ body{
 #inicioMsg {
     padding-top: 400px;
     height: 500px;
-    width: 84px;
+    width: 90px;
     color: white;
     display: block;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 #starter, #victory {
@@ -65,6 +65,7 @@ body{
     border: 1px #0A0A0A solid;
     box-shadow: 5px 5px 11px #0A0A0A;
     color: yellow;
+    font-family: 'mortalkombat3', serif;
 }
 #seletor-painel h3 {
     margin:0px;
@@ -133,8 +134,6 @@ main {
     height: 635px;
     column-gap: 5px;
     background-image: url("./images/vila.png");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 #playerOne, #playerTwo {
     height: 520px;
@@ -144,17 +143,20 @@ main {
     border-radius: 10px;
     color:#fefefe;
     box-shadow: 5px 5px 11px #0A0A0A;
+    font-family: 'Noto Sans', sans-serif;
 }
 #log{
     height: 500px;
     width: 390px;
     text-align: center;
-    filter:opacity(80%)
+    filter:opacity(80%);
+    font-family: 'Noto Sans', sans-serif;
 }
 #logText {
     resize: none;
-    font-size: 19px;
+    font-size: 18px;
     background-color: #0A0A0A;
+    font-family: 'Noto Sans', sans-serif;    
 }
 #img-one, #img-two{
     height: 200px;
@@ -195,7 +197,6 @@ p {
     border: yellow 2px solid;
     color: white;
     text-align: center;
-    font-family: 'Slabo 27px', serif;
 }
 .scroll::-webkit-scrollbar {
     display: none;
@@ -283,4 +284,10 @@ p {
     background-color: black;
     color:#e2d737;
     font-weight: bold;
+}
+.act-btn:disabled {
+    
+    background-color: grey;
+    color: grey;
+
 }
