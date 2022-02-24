@@ -11,6 +11,8 @@ body{
     width: 100%;
     height: fit-content;
     background-image: url("./images/smokescreen.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #inicioLogo {
     background-image: url("./images/inicioLogo.png");
@@ -132,6 +134,8 @@ main {
     height: 635px;
     column-gap: 5px;
     background-image: url("./images/vila.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #playerOne, #playerTwo {
     height: 520px;
